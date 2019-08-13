@@ -1,6 +1,40 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+#include<assert.h>
+/*判断一个字符串是否为另外一个字符串旋转之后的字符串。 
+例如：给定s1 =AABCD和s2 = BCDAA，返回1 
+给定s1=abcd和s2=ACBD，返回0. 
+
+AABCD左旋一个字符得到ABCDA 
+AABCD左旋两个字符得到BCDAA 
+
+AABCD右旋一个字符得到DAABC 
+
+*/
+int  func(char *p,char *q)
+{
+	strncat(p, p, strlen(p));
+	if (strstr(p, q) == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+int main()
+{
+	char s1[] = "AABCD";
+	char s2[] = "BCDAA";
+	/*char a2[] = "abcd";
+	char *q = "ACBD";*/
+	printf("%d\n", func(s1, s2));	
+	return 0;
+}
+#if 0
 /*1.实现一个函数，可以左旋字符串中的k个字符。 
 ABCD左旋一个字符得到BCDA 
 ABCD左旋两个字符得到CDAB
@@ -45,7 +79,7 @@ int main()
 数组的每行从左到右是递增的，每列从上到下是递增的. 
 在这样的数组中查找一个数字是否存在。 
 时间复杂度小于O(N); */
-#if 0
+
 void find(int arr[][3], int *row, int *col, int key)
 {
 	int x = 0;
