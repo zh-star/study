@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
+
+#if 0
 /*有一个字符数组的内容为:"student a am i", 
 请你将数组的内容改为"i am a student". 
 要求： 
@@ -41,7 +43,7 @@ int main()
 }
 
 
-#if 0
+
 /*编程实现： 
 一组数据中只有一个数字出现了一次。 
 其他所有数字都是成对出现的。 
@@ -83,6 +85,7 @@ unsigned int reverse_bit(unsigned int value)
 	{
 		ret <<= 1;
 		ret |= ((value >> i) & 1);//让一个数和1相与并右移，可找出二进制的每一位
+		//ret = (ret << 1) | ((value >> i) & 1);这样也可以得到
 	}
 	return ret;
 }
