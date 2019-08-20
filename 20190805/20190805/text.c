@@ -105,7 +105,7 @@ int main()
 		tmp = i;
 		while (tmp)
 		{
-			sum +=pow(tmp % 10, count);
+			sum +=pow(tmp % 10, count);//pow(a,b)函数计算a的b次方的值
 			tmp = tmp / 10;
 		}
 		//比较
