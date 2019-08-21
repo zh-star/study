@@ -105,7 +105,7 @@ int main()
 		tmp = i;
 		while (tmp)
 		{
-			sum +=pow(tmp % 10, count);//pow(a,b)函数计算a的b次方的值
+			sum +=pow(tmp % 10, count);//pow(a,b)函数计算a的b次方的值，头文件 math.h
 			tmp = tmp / 10;
 		}
 		//比较
@@ -221,7 +221,7 @@ int main()
 	int count = 3;
 	char a[7] = {0};
 	printf("请输入密码：");
-	scanf("%c\n",a);
+	scanf("%s\n",a);
 	if (strcmp(a, "123456") == 0)
 	{
 		printf("登陆成功！");
