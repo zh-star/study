@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 //打印100~200之间的素数
-#if 0
+
 int main()
 {
 	int i = 1;
@@ -13,7 +13,7 @@ int main()
 	} while (i<10);
 	return 0;
 }
-
+#if 0
 int main()
 {
 	int i, j;

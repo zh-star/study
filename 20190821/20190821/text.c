@@ -2,21 +2,20 @@
 #include<stdio.h>
 #include<string.h>
 #include<assert.h>
-
+#if 0
 /*1.实现strcpy,字符串拷贝*/
 char* Strcpy(char* dest, const char* src) {	
-	if (src == NULL || dest ==NULL) {   //柔和的处理方式
+	if (src == NULL || dest ==NULL) {   //合法性校验，柔和的处理方式
 		return dest;
 	}
 	//assert(src != NULL || dest != NULL);//assert 中写合法内容，条件不符合程序崩溃
 	int i = 0;
 	for (i = 0; src[i] != '\0'; ++i) {
-		dest[i] = src[i];
+		dest[i] = src[i];//将src拷贝给dest
 	}
-	dest[i] = src[i];
+	dest[i] = src[i];//将'\0'也要拷贝
 	return dest;
 }
-#if 0
 int main() {
 	char str1[] = "abcdef";
 	char str2[] = "cccccc";
@@ -24,7 +23,9 @@ int main() {
 	printf("%s\n", str1);
 	return 0;
 }
+
 #endif
+#if 0
 /*2.实现strcat :字符串拼接*/
 char* 	strcat(char* dest, const char* src)
 {
@@ -45,9 +46,7 @@ char* 	strcat(char* dest, const char* src)
 		++src;
 	}
 	return dest;
-
 }
-#if 0
 int main() 
 {
 	char str1[20] = "abcde";
@@ -56,11 +55,13 @@ int main()
 	printf("%s\n", str1);
 	return 0;
 }
+
 #endif
+#if 0
 /*3.实现strstr :发现字符串*/
 const char* Strstr(const char* str1, const char* str2)
 {
-	if (str1== NULL || str2 == NULL)
+	if (str1== NULL || str2 == NULL)//合法性校验
 	{
 		return NULL;
 	}	
@@ -89,7 +90,6 @@ const char* Strstr(const char* str1, const char* str2)
 	}
 	return NULL;
 }
-#if 0
 int main()
 {
 	const char str1[12] = "hello world";
@@ -105,6 +105,7 @@ int main()
 	}
 	return 0;
 }
+
 #endif
 /*4.实现strchr(s,c):查找字符串s中首次出现字符c的位置。*/
 char* Strchr(const char* str1, int  c)
@@ -124,11 +125,10 @@ char* Strchr(const char* str1, int  c)
 	}
 	return NULL;
 }
-#if 0
 int main()
 {
 	char str1[] = "abcdecde";
-	int  c = 'f';
+	int  c = 'c';
 	char* ret=strchr(str1, c);
 	if (ret == NULL)
 	{
@@ -140,5 +140,6 @@ int main()
 	}
 	return 0;
 }
+#if 0
 #endif
 /*实现strcmp:*/
