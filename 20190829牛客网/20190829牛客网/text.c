@@ -1,6 +1,56 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<string.h>
+/*给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，找到矩阵中第k小的元素。
+ 请注意，它是排序后的第k小元素，而不是第k个元素。*/
+#include<stdio.h>
+int main()
+{
+	int n,i,j,k,temp;
+	scanf("%d",&k);
+	scanf("%d",&n);
+	int M[n*n];//矩阵当成一维数组
+	for(i=0;i<n*n;i++)
+	{
+		scanf("%d",&M[i]);
+	}
+	for(i=1;i<n*n-1;i++)
+	{
+		for(j=i;j<n*n-1;j++)
+		{
+			if(M[j]<M[i])
+			{
+				temp=M[j];
+				M[j]=M[i];
+				M[i]=temp;
+			}
+		}
+	}
+	printf("%d", M[k - 1]);
+}
+#if 0
+int main()
+{
+	int k,n;//k:第K小的元素    n:矩阵行，列数
+	scanf("%d%d",&k,&n);
+	int arr[3][3]={0};
+	int i=0,j=0;
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			scanf("%d",&arr[i][j]);
+		}
+		printf("\n");
+	}
+	for (i = 0; i<n; i++){
+		for (j = 0; j<n; j++){
+			printf("%d", &arr[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+#endif
+#if 0
 int main()
 {
 	char a[21];
@@ -10,6 +60,7 @@ int main()
 	puts(a);
 	return 0;
 }
+#endif
 #if 0
 int main()
 {
