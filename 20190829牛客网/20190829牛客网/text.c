@@ -6,10 +6,32 @@
 #include<stdio.h>
 int main()
 {
-	int n,i,j,k,temp;
+	int n = 3, i, j;
+	//scanf("%d",&n);
+	int a[3][3];
+	for (i = 0; i<n; i++){
+		for (j = 0; j<n; j++){
+			scanf("%d", &a[i][j]);
+		}
+	}
+	for (i = 0; i<n; i++){
+		for (j = 0; j<n; j++){
+			printf("%d", a[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+#if 0
+int main()
+{
+	//牛客网，由于数组的定义时的下表不能为变量，所以牛客网中，若要求输入下表时，可用scanf输入，
+	//也可直接在定义数组时，赋予初始常量值，系统会自动进行替换鉴别
+	但其它地方要用下表，那个大小值时，必须在定义变量初始化，例如这道题
+	int n=5,i,j,k,temp;
 	scanf("%d",&k);
-	scanf("%d",&n);
-	int M[n*n];//矩阵当成一维数组
+	//scanf("%d",&n);//这句可省略
+	int M[5*5];//矩阵当成一维数组，常量5，牛客网再调试时会自己进行替换
 	for(i=0;i<n*n;i++)
 	{
 		scanf("%d",&M[i]);
@@ -28,6 +50,7 @@ int main()
 	}
 	printf("%d", M[k - 1]);
 }
+#endif
 #if 0
 int main()
 {
