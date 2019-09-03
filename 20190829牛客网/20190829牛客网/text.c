@@ -1,9 +1,80 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<string.h>
+void Input(int n, int*p)
+{
+	int i = 0;
+	if (n % 2 == 0)
+	{
+		for (i = 0; i<n; i++)
+		{
+			scanf("%d", *p);
+			++p;
+		}
+	}
+}
+void Swap(int* p,int* q)
+{
+	int temp=*p;
+	*p=*q;
+	*q=temp;
+}
+int main()
+{
+	int n=6;
+	scanf("%d",&n);
+	int arr[100010]={0};
+	int i=0,j=0;
+	int sum_max=0;
+	int sum_min=0;
+	Input(n, &arr);
+	for(i=0;i<n-1;i++)
+	{
+		for(j=0;j<n-1-i;j++)
+		{
+			if(arr[j]<arr[j+1])
+			{
+				Swap(&arr[j],&arr[j+1]);
+			}
+		}
+	}
+	sum_max=arr[0]+arr[n-1];
+	sum_min=arr[n/2-1]+arr[n/2];
+	printf("%d\n",sum_max-sum_min);
+	return 0;
+}
+#if 0
+//获取n维数组的最大长度
+int main()
+{
+	//字符串类型的数组，还是字符串，长得样子像数组
+	char a[50000];
+	int i = 0;
+	gets(a);//输入字符串，和scanf区别，可以有空格
+	int sz = strlen(a);
+	int temp = 0;//用来记录深度
+	int max = 0;//表示最大的深度
+	for (i = 0; a[i] != '\0'; i++)
+	{
+		if (a[i] == '[')//中【的个数来计算深度
+		{
+			temp++;
+			if (temp >= max)
+			{
+				max = temp;
+			}
+		}
+		if (a[i] == ']')
+		{
+			temp--;
+		}
+	}
+	printf("%d\n", max);
+	return 0;
+}
+
 /*给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，找到矩阵中第k小的元素。
  请注意，它是排序后的第k小元素，而不是第k个元素。*/
-#include<stdio.h>
 int main()
 {
 	int n = 3, i, j;
@@ -22,6 +93,7 @@ int main()
 	}
 	return 0;
 }
+#endif
 #if 0
 int main()
 {
