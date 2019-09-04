@@ -1,46 +1,54 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<string.h>
-void Input(int n, int*p)
+//题目：两两配对，差值最小
+//给定一个长度为偶数的数组arr，将该数组中的数字两两配对并求和，在这些和中选出最大和最小值，请问该如何两两配对，才能让最大值和最小值的差值最小？
+
+// 将数组先进行排序，再第一个和最后一个相加求和，之后再组成新的数组，进行排序，
+//再让第一个最大值和最后一个最小值相减
+//数组的排序都是从大到小
+#define MAXN  100010
+void Swap(int* p, int* q)//交换函数
 {
-	int i = 0;
+	int temp = *p;
+	*p = *q;
+	*q = temp;
+}
+void Func(int n, int arr[MAXN])//冒泡排序
+{
+	int i, j;
+	for (i = 0; i<n - 1; i++)
+	{
+		for (j = 0; j<n - 1; j++)
+		{
+			if (arr[j]<arr[j + 1])
+			{
+				Swap(&arr[j], &arr[j + 1]);
+			}
+		}
+	}
+}
+int main()
+{
+	int n = 4;
+	scanf("%d", &n);
+	int arr[MAXN];//原始数组
+	int a[MAXN];//求和之后，存储和的数组
+	int i = 0, j = 0;
 	if (n % 2 == 0)
 	{
 		for (i = 0; i<n; i++)
 		{
-			scanf("%d", *p);
-			++p;
+			scanf("%d", &arr[i]);
 		}
 	}
-}
-void Swap(int* p,int* q)
-{
-	int temp=*p;
-	*p=*q;
-	*q=temp;
-}
-int main()
-{
-	int n=6;
-	scanf("%d",&n);
-	int arr[100010]={0};
-	int i=0,j=0;
-	int sum_max=0;
-	int sum_min=0;
-	Input(n, &arr);
-	for(i=0;i<n-1;i++)
+	Func(n, arr);//排序原数组
+	for(i=0;i<n/2;i++)
 	{
-		for(j=0;j<n-1-i;j++)
-		{
-			if(arr[j]<arr[j+1])
-			{
-				Swap(&arr[j],&arr[j+1]);
-			}
-		}
+		a[i]=arr[i]+arr[n-1-i];//求和
 	}
-	sum_max=arr[0]+arr[n-1];
-	sum_min=arr[n/2-1]+arr[n/2];
-	printf("%d\n",sum_max-sum_min);
+	Func(n,a);//排序和
+	printf("%d\n",a[0]-a[n/2-1]);
 	return 0;
 }
 #if 0
