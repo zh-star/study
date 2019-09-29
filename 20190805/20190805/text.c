@@ -75,7 +75,7 @@ int main()
 	{
 		char a[7] = { 0 };//0 '0' '\0' NULL
 		scanf("%s",a);
-		if(strcmp(a,"666666") == 0)
+		if(strcmp(a,"666666") == 0)//strcmp函数：字符串比较，若相等返回0，若大于返回正数，若小于，返回负数
 		{
 			printf("登录成功\n");
 			break;
@@ -93,16 +93,16 @@ int main()
 	for (i = 0; i < 1000000; i++)
 	{
 		int count = 1;
-		int tmp = i;
+		int tmp = i;//11
 		int sum = 0;
 		//计算几位数
-		while (tmp / 10)
+		while (tmp / 10)//10 11
 		{
-			count++;
-			tmp /= 10;
+			count++;//2
+			tmp /= 10;//1
 		}
 		//计算每位数的次方和
-		tmp = i;
+		tmp = i;//10
 		while (tmp)
 		{
 			sum +=pow(tmp % 10, count);//pow(a,b)函数计算a的b次方的值，头文件 math.h
@@ -112,7 +112,6 @@ int main()
 		if (i == sum)
 			printf("%d ", i);
 	}
-
 	system("pause");
 	return 0;
 }

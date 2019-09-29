@@ -1,15 +1,15 @@
-﻿生成启动时间为 2019/8/22 12:30:01。
-     1>项目“D:\C代码比特\20190823\20190823\20190823.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2019/9/29 13:43:52。
+     1>项目“D:\C代码比特\study\20190823\20190823\20190823.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt text.c
          text.c
-     1>d:\c代码比特\20190823\20190823\text.c(11): warning C4047: “=”:“char”与“char *”的间接级别不同
-     1>d:\c代码比特\20190823\20190823\text.c(11): warning C4047: “!=”:“int”与“void *”的间接级别不同
+     1>d:\c代码比特\study\20190823\20190823\text.c(11): warning C4047: “=”:“char”与“char *”的间接级别不同
+     1>d:\c代码比特\study\20190823\20190823\text.c(11): warning C4047: “!=”:“int”与“void *”的间接级别不同
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C代码比特\20190823\Debug\20190823.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\C代码比特\20190823\Debug\20190823.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C代码比特\20190823\Debug\20190823.lib" /MACHINE:X86 Debug\text.obj
-         20190823.vcxproj -> D:\C代码比特\20190823\Debug\20190823.exe
-     1>已完成生成项目“D:\C代码比特\20190823\20190823\20190823.vcxproj”(Build 个目标)的操作。
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C代码比特\study\20190823\Debug\20190823.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\C代码比特\study\20190823\Debug\20190823.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C代码比特\study\20190823\Debug\20190823.lib" /MACHINE:X86 Debug\text.obj
+         20190823.vcxproj -> D:\C代码比特\study\20190823\Debug\20190823.exe
+     1>已完成生成项目“D:\C代码比特\study\20190823\20190823\20190823.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.76
+已用时间 00:00:01.12

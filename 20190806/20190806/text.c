@@ -187,7 +187,6 @@ int main()
 	printf("%d\n",fib1(5));
 	return 0;
 }
-
 //1.递归实现求第n个斐波那契数。
 int fib(int n)
 {

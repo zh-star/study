@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h> 
+
+
 //int main()
 //{
 //
@@ -15,6 +17,7 @@
 //
 //}
 //将三个数按从大到小输出
+#if 0
 #include <stdio.h>
 int main()
 {
@@ -44,6 +47,7 @@ int main()
 	printf("\n");
 	return 0;
 }
+#endif
 /*
 //求10 个整数中最大值。
 int main()

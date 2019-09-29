@@ -95,7 +95,7 @@ int main()
 	{
 		temp=flage*1.0/i;//最先flage=1
 		sum = temp + sum;
-		flage *= -1;		//当flage乘-1，当i=2时，则上面就是乘以-2
+		flage *= -1;		//当flage乘-1，当i=2时，则上面就是乘以-1
 	}
 	printf("%lf", sum);//double型打印形式为%lf
 }
@@ -210,7 +210,6 @@ int main()
 	{
 		scanf("%d", &a[i]);
 	}
-
 	for (j = 0; j < 2; j++)
 	{
 		for (i = 0; i < 2 - j; i++)//先比较a1和a2，如果a2大就交换，否则不交换。再比较a2和a3 ，进行交换，，，之后还要进行a1和a2的比较，所以有j的循环

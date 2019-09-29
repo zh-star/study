@@ -158,7 +158,6 @@ void print(int a[], int len)
 	}
 	printf("\n");
 }
-
 int main()
 {
 	int a[] = { 1, 2, 4, 3, 5, 11, 7, 8, 15, 9, 6 };

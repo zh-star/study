@@ -1,13 +1,15 @@
-﻿生成启动时间为 2019/8/4 16:24:23。
-     1>项目“D:\C代码比特\20190801\20190801\20190801.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2019/9/18 22:15:56。
+     1>项目“D:\C代码比特\study\lianxikebeidaima\20190801\20190801\20190801.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt text.c
          text.c
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C代码比特\20190801\Debug\20190801.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\C代码比特\20190801\Debug\20190801.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C代码比特\20190801\Debug\20190801.lib" /MACHINE:X86 Debug\text.obj
-         20190801.vcxproj -> D:\C代码比特\20190801\Debug\20190801.exe
-     1>已完成生成项目“D:\C代码比特\20190801\20190801\20190801.vcxproj”(Build 个目标)的操作。
+     1>d:\c代码比特\study\lianxikebeidaima\20190801\20190801\text.c(5): error C2143: 语法错误 : 缺少“;”(在“:”的前面)
+     1>d:\c代码比特\study\lianxikebeidaima\20190801\20190801\text.c(5): error C2143: 语法错误 : 缺少“)”(在“:”的前面)
+     1>d:\c代码比特\study\lianxikebeidaima\20190801\20190801\text.c(5): error C2059: 语法错误:“)”
+     1>d:\c代码比特\study\lianxikebeidaima\20190801\20190801\text.c(8): error C2059: 语法错误:“return”
+     1>d:\c代码比特\study\lianxikebeidaima\20190801\20190801\text.c(9): error C2059: 语法错误:“}”
+     1>已完成生成项目“D:\C代码比特\study\lianxikebeidaima\20190801\20190801\20190801.vcxproj”(Build 个目标)的操作 - 失败。
 
-生成成功。
+生成失败。
 
-已用时间 00:00:00.58
+已用时间 00:00:01.43
