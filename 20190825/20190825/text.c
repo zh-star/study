@@ -4,7 +4,7 @@ int main()
 {
 	long long  a[] = { 0 };
 	int i = 0;
-	int n = 5;//需要几个数字
+	int n = 5;//脨猫脪陋录赂赂枚脢媒脳脰
 	int m = 3;
 	int count = 0;
 	long long  ret = 0;
@@ -12,7 +12,6 @@ int main()
 	//scanf("%d", &n);	
 	for (i = 0; i<n; i++)
 	{
-
 		a[i] = ret * 10 + (i + 1);
 		ret = a[i];
 		//printf("%d\n",a[i]);
