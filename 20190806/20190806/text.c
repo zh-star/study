@@ -1,31 +1,26 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 //#include<math.h>
-int fib1(int n)
-{
+int fib1(int n) {
 	int f1=1;
 	int f2=1;
 	int f3=0;
 	int i = 0;
-	for (i = 0; i <= n;i++)
-	{
+	for (i = 0; i <= n;i++) {
 		f3 = f2 + f1;
 		f1 = f2;
 		f2 = f3;
 	}
 	return f3;
 }
-int main()
-{
+int main() {
 	printf("%d\n",fib1(5));
 	return 0;
 }
 
 #if 0
-void  reverse_string(char*string)
-{
-	if (*string == '\0')
-	{		
+void  reverse_string(char*string) {
+	if (*string == '\0') {		
 		printf("%c", *string);
 		string--;
 	}
@@ -34,65 +29,52 @@ void  reverse_string(char*string)
 	reverse_string(string + 1);
 	//}
 }
-int main()
-{
+int main() {
 	char *string = "abcd";
 	reverse_string(string);
 	return 0;
 }
 
-//µİ¹é·½Ê½ÊµÏÖ´òÓ¡Ò»¸öÕûÊıµÄÃ¿Ò»Î» 
-int fun( unsigned int num)
-{
-	if (num >9)
-	{
+//é€’å½’æ–¹å¼å®ç°æ‰“å°ä¸€ä¸ªæ•´æ•°çš„æ¯ä¸€ä½ 
+int fun( unsigned int num) {
+	if (num >9) {
 		fun(num / 10);
 	}
     	printf("%d ", num%10);
 }
-int main()
-{
+int main() {
 	fun(62387);
 	return 0;
 }
 
-//6.µİ¹éºÍ·Çµİ¹é·Ö±ğÊµÏÖÇónµÄ½×³Ë
-int Fac1(int n)
-{
+//6.é€’å½’å’Œéé€’å½’åˆ†åˆ«å®ç°æ±‚nçš„é˜¶ä¹˜
+int Fac1(int n) {
 	int i,ret=1;
-	for (i = 1; i <= n; i++)
-	{
+	for (i = 1; i <= n; i++) {
 		ret =ret*i;
 	}
 	return ret;
 }
-int Fac(int n)
-{
-	if (n== 1)
-	{
+int Fac(int n) {
+	if (n== 1) {
 		return 1;
-	}
-	else
-	{
+	} else {
 		return n*Fac(n - 1);
 	}
 }
-int main()
-{
+int main() {
 	printf("%d\n", Fac1(5));
 	return 0;
 }
 
-//5.µİ¹éºÍ·Çµİ¹é·Ö±ğÊµÏÖstrlen
-int  mystrlen2(char *p)//µİÍÆ
-{
-	if (*p == '\0')
-	{
+//5.é€’å½’å’Œéé€’å½’åˆ†åˆ«å®ç°strlen
+int  mystrlen2(char *p) {
+	if (*p == '\0') {
 		return 0;
 	}
 	return 1 + mystrlen2(p + 1);
 }
-int mystrlen(char *p)//·Çµİ¹é
+int mystrlen(char *p)//éé€’å½’
 {
 	int count = 0;
 	while (*p != '\0')
@@ -109,19 +91,19 @@ int main()
 	return 0;
 }
 
-//4. ±àĞ´Ò»¸öº¯Êı reverse_string(char * string)£¨µİ¹éÊµÏÖ£© 
-//ÊµÏÖ£º½«²ÎÊı×Ö·û´®ÖĞµÄ×Ö·û·´ÏòÅÅÁĞ¡£ 
-//ÒªÇó£º²»ÄÜÊ¹ÓÃCº¯Êı¿âÖĞµÄ×Ö·û´®²Ù×÷º¯Êı¡£
+//4. ç¼–å†™ä¸€ä¸ªå‡½æ•° reverse_string(char * string)ï¼ˆé€’å½’å®ç°ï¼‰ 
+//å®ç°ï¼šå°†å‚æ•°å­—ç¬¦ä¸²ä¸­çš„å­—ç¬¦åå‘æ’åˆ—ã€‚ 
+//è¦æ±‚ï¼šä¸èƒ½ä½¿ç”¨Cå‡½æ•°åº“ä¸­çš„å­—ç¬¦ä¸²æ“ä½œå‡½æ•°ã€‚
 void reverse_string(char *string)
 {
 	if (*string != '\0')
 	{
-		reverse_string(string + 1);//µİ¹é
+		reverse_string(string + 1);//é€’å½’
 		printf("%c ", *string);
 	}
 	else
 	{
-		return;//ÖÕÖ¹Ìõ¼ş£º*string == '\0'£¬¿ªÊ¼Íù»Ø·µ²¢´òÓ¡
+		return;//ç»ˆæ­¢æ¡ä»¶ï¼š*string == '\0'ï¼Œå¼€å§‹å¾€å›è¿”å¹¶æ‰“å°
 	}
 }
 int main()
@@ -131,8 +113,8 @@ int main()
 	printf("\n");
 	return 0;
 }
-//3. Ğ´Ò»¸öµİ¹éº¯ÊıDigitSum(n)£¬ÊäÈëÒ»¸ö·Ç¸ºÕûÊı£¬·µ»Ø×é³ÉËüµÄÊı×ÖÖ®ºÍ£¬
-//ÀıÈç£¬µ÷ÓÃDigitSum(1729)£¬ÔòÓ¦¸Ã·µ»Ø1+7+2+9£¬ËüµÄºÍÊÇ19 
+//3. å†™ä¸€ä¸ªé€’å½’å‡½æ•°DigitSum(n)ï¼Œè¾“å…¥ä¸€ä¸ªéè´Ÿæ•´æ•°ï¼Œè¿”å›ç»„æˆå®ƒçš„æ•°å­—ä¹‹å’Œï¼Œ
+//ä¾‹å¦‚ï¼Œè°ƒç”¨DigitSum(1729)ï¼Œåˆ™åº”è¯¥è¿”å›1+7+2+9ï¼Œå®ƒçš„å’Œæ˜¯19 
 int DigitSum(int n)
 {
 	if (n <10)
@@ -150,7 +132,7 @@ int main()
 	return 0;
 }
 
-//2.±àĞ´Ò»¸öº¯ÊıÊµÏÖn^k£¬Ê¹ÓÃµİ¹éÊµÏÖ
+//2.ç¼–å†™ä¸€ä¸ªå‡½æ•°å®ç°n^kï¼Œä½¿ç”¨é€’å½’å®ç°
 int mypow(int n, int k)
 {
 	if (k ==0)
@@ -167,7 +149,7 @@ int main()
 	printf("%d\n",mypow(2,3));
 	return 0;
 }
-//1.·Çµİ¹éÊµÏÖÇóµÚn¸öì³²¨ÄÇÆõÊı¡£
+//1.éé€’å½’å®ç°æ±‚ç¬¬nä¸ªæ–æ³¢é‚£å¥‘æ•°ã€‚
 int fib1(int n)
 {
 	int f1=1;
@@ -187,7 +169,7 @@ int main()
 	printf("%d\n",fib1(5));
 	return 0;
 }
-//1.µİ¹éÊµÏÖÇóµÚn¸öì³²¨ÄÇÆõÊı¡£
+//1.é€’å½’å®ç°æ±‚ç¬¬nä¸ªæ–æ³¢é‚£å¥‘æ•°ã€‚
 int fib(int n)
 {
 	if (n <= 2)
