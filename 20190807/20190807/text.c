@@ -1,76 +1,63 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #if 0
-//5.ÊµÏÖÒ»¸öº¯Êı£¬ÅĞ¶ÏÒ»¸öÊıÊÇ²»ÊÇËØÊı¡£
-int TEX(int n)
-{
+//5.å®ç°ä¸€ä¸ªå‡½æ•°ï¼Œåˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯ä¸æ˜¯ç´ æ•°ã€‚
+int TEX(int n){
 	int i = 0;
-	for (i = 2; i < n; i++)
-	{
-		if (n%i == 0)
-		{
+	for (i = 2; i < n; i++){
+		if (n%i == 0){
 			return 0;
-		}
-		else
-		{
+		} else {
 			return 1;
 		}
 	}
 }
-int main()
-{
+int main() {
 	int n;
-	printf("ÇëÊäÈëÄúÒªÅĞ¶ÏµÄÊı£º");
+	printf("è¯·è¾“å…¥æ‚¨è¦åˆ¤æ–­çš„æ•°ï¼š");
 	scanf("%d",&n);
-	if (TEX(n) == 1)
-	{
-		printf("ËüÊÇËØÊı/ÖÊÊı\n");
-	}
-	else
-	{
-		printf("ËüÊÇºÏÊı\n");
+	if (TEX(n) == 1) {
+		printf("å®ƒæ˜¯ç´ æ•°/è´¨æ•°\n");
+	} else {
+		printf("å®ƒæ˜¯åˆæ•°\n");
 	}
 	return 0;
 }
 
 ////4. 
-//´´½¨Ò»¸öÊı×é£¬
-//ÊµÏÖº¯Êıinit£¨£©³õÊ¼»¯Êı×é¡¢
-//ÊµÏÖempty£¨£©Çå¿ÕÊı×é¡¢
-//ÊµÏÖreverse£¨£©º¯ÊıÍê³ÉÊı×éÔªËØµÄÄæÖÃ¡£
-//ÒªÇó£º×Ô¼ºÉè¼Æº¯ÊıµÄ²ÎÊı£¬·µ»ØÖµ
-void init(int a[],int sz)//³õÊ¼»¯Êı×é¡¢
+//åˆ›å»ºä¸€ä¸ªæ•°ç»„ï¼Œ
+//å®ç°å‡½æ•°initï¼ˆï¼‰åˆå§‹åŒ–æ•°ç»„ã€
+//å®ç°emptyï¼ˆï¼‰æ¸…ç©ºæ•°ç»„ã€
+//å®ç°reverseï¼ˆï¼‰å‡½æ•°å®Œæˆæ•°ç»„å…ƒç´ çš„é€†ç½®ã€‚
+//è¦æ±‚ï¼šè‡ªå·±è®¾è®¡å‡½æ•°çš„å‚æ•°ï¼Œè¿”å›å€¼
+void init(int a[],int sz)//åˆå§‹åŒ–æ•°ç»„ã€
 {
 	int i = 0;
-	for (i= 0; i <sz; i++)
-	{
+	for (i= 0; i <sz; i++) {
 		a[i] = i;
 		printf("%d",a[i]);
 	}
 	printf("\n");
 }
-void empty(int a[], int sz)//Çå¿ÕÊı×é¡¢
+void empty(int a[], int sz)//æ¸…ç©ºæ•°ç»„ã€
 {
 	int i = 0;
-	for (i = 0; i <sz; i++)
-	{
+	for (i = 0; i <sz; i++) {
 		a[i] = 0;
 		printf("%d", a[i]);
 	}
 	printf("\n");
 }
-void reserve(int a[], int sz)//Íê³ÉÊı×éÔªËØµÄÄæÖÃ¡£
+void reserve(int a[], int sz)//å®Œæˆæ•°ç»„å…ƒç´ çš„é€†ç½®ã€‚
 {
 	int i = 0;
-	for (i = sz-1; i >=0; i--)
-	{
+	for (i = sz-1; i >=0; i--) {
 		a[i] = i;
 		printf("%d", a[i]);
 	}
 	printf("\n");
 }
-int main()
-{
+int main() {
 	int a[10];
 	int sz = sizeof(a) / sizeof(a[0]);
 	init(a, sz);
@@ -79,66 +66,52 @@ int main()
 	return 0;
 }
 
-//3..ÊµÏÖÒ»¸öº¯ÊıÅĞ¶ÏyearÊÇ²»ÊÇÈóÄê
-int leapyear(int n)
-{
-	if (n % 4 == 0 && n != 400 || n % 400 == 0)
-	{
+//3..å®ç°ä¸€ä¸ªå‡½æ•°åˆ¤æ–­yearæ˜¯ä¸æ˜¯æ¶¦å¹´
+int leapyear(int n) {
+	if (n % 4 == 0 && n != 400 || n % 400 == 0) {
 		return 1;
-	}
-	else
-	{
+	} else {
 		return 0;
 	}
 }
-int main()
-{
-	if (leapyear(1746) == 1)
-	{
-		printf("ÊÇÈòÄê\n");
-	}
-	else
-	{
-		printf("²»ÊÇÈòÄê\n");
+int main() {
+	if (leapyear(1746) == 1) {
+		printf("æ˜¯é—°å¹´\n");
+	} else {
+		printf("ä¸æ˜¯é—°å¹´\n");
 	}
 	leapyear(1746);
 	return 0;
 }
 
-//2.Ê¹ÓÃº¯ÊıÊµÏÖÁ½¸öÊıµÄ½»»»¡£
-void myswap(int *a,int *b)
-{
+//2.ä½¿ç”¨å‡½æ•°å®ç°ä¸¤ä¸ªæ•°çš„äº¤æ¢ã€‚
+void myswap(int *a,int *b) {
 	int temp = *a;
 	*a =*b;
 	*b = temp;
 }
-int main()
-{
+int main() {
 	int A=10,B=20;
 	myswap(&A,&B);
 	printf("a=%d b=%d",A,B);
 	return 0;
 }
 
-//1.1.ÊµÏÖÒ»¸öº¯Êı£¬´òÓ¡³Ë·¨¿Ú¾÷±í£¬¿Ú¾÷±íµÄĞĞÊıºÍÁĞÊı×Ô¼ºÖ¸¶¨£¬ 
-//ÊäÈë9£¬Êä³ö9 * 9¿Ú¾÷±í£¬ÊäÈë12£¬Êä³ö12 * 12µÄ³Ë·¨¿Ú¾÷±í¡£
-void func(int n)
-{
+//1.1.å®ç°ä¸€ä¸ªå‡½æ•°ï¼Œæ‰“å°ä¹˜æ³•å£è¯€è¡¨ï¼Œå£è¯€è¡¨çš„è¡Œæ•°å’Œåˆ—æ•°è‡ªå·±æŒ‡å®šï¼Œ 
+//è¾“å…¥9ï¼Œè¾“å‡º9 * 9å£è¯€è¡¨ï¼Œè¾“å…¥12ï¼Œè¾“å‡º12 * 12çš„ä¹˜æ³•å£è¯€è¡¨ã€‚
+void func(int n) {
 	int i, j;
-	for (i = 1; i <= n; i++)
-	{
-		for (j = 1; j <= i; j++)
-		{
+	for (i = 1; i <= n; i++) {
+		for (j = 1; j <= i; j++) {
 			printf("%d*%d=%d ", j, i, j*i);
 		}
 		printf("\n");
 	}
 }
 
-int main()
-{
+int main() {
 	int n;
-	printf("ÇëÊäÈëÄúĞèÒªµÄĞĞÊı»òÁĞÊı£º");
+	printf("è¯·è¾“å…¥æ‚¨éœ€è¦çš„è¡Œæ•°æˆ–åˆ—æ•°ï¼š");
 	scanf("%d",&n);
 	func(n);
 	return 0;
