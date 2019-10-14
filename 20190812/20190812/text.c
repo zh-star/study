@@ -3,30 +3,25 @@
 #include<stdlib.h>
 #include<string.h>
 #include<assert.h>
-/*ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÎªÁíÍâÒ»¸ö×Ö·û´®Ğı×ªÖ®ºóµÄ×Ö·û´®¡£ 
-ÀıÈç£º¸ø¶¨s1 =AABCDºÍs2 = BCDAA£¬·µ»Ø1 
-¸ø¶¨s1=abcdºÍs2=ACBD£¬·µ»Ø0. 
+/*åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºå¦å¤–ä¸€ä¸ªå­—ç¬¦ä¸²æ—‹è½¬ä¹‹åçš„å­—ç¬¦ä¸²ã€‚ 
+ä¾‹å¦‚ï¼šç»™å®šs1 =AABCDå’Œs2 = BCDAAï¼Œè¿”å›1 
+ç»™å®šs1=abcdå’Œs2=ACBDï¼Œè¿”å›0. 
 
-AABCD×óĞıÒ»¸ö×Ö·ûµÃµ½ABCDA 
-AABCD×óĞıÁ½¸ö×Ö·ûµÃµ½BCDAA 
+AABCDå·¦æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°ABCDA 
+AABCDå·¦æ—‹ä¸¤ä¸ªå­—ç¬¦å¾—åˆ°BCDAA 
 
-AABCDÓÒĞıÒ»¸ö×Ö·ûµÃµ½DAABC 
+AABCDå³æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°DAABC 
 
 */
-int  func(char *p,char *q)
-{
-	strncat(p, p, strlen(p));
-	if (strstr(p, q) == NULL)
-	{
+int  func(char *p,char *q) {
+ 	strncat(p, p, strlen(p));
+	if (strstr(p, q) == NULL) {
 		return 0;
-	}
-	else
-	{
+	} else {
 		return 1;
 	}
 }
-int main()
-{
+int main() {
 	char s1[] = "AABCD";
 	char s2[] = "BCDAA";
 	/*char a2[] = "abcd";
@@ -35,17 +30,15 @@ int main()
 	return 0;
 }
 #if 0
-/*1.ÊµÏÖÒ»¸öº¯Êı£¬¿ÉÒÔ×óĞı×Ö·û´®ÖĞµÄk¸ö×Ö·û¡£ 
-ABCD×óĞıÒ»¸ö×Ö·ûµÃµ½BCDA 
-ABCD×óĞıÁ½¸ö×Ö·ûµÃµ½CDAB
-Àı£º   k=2,       ×Ö·û´®£ºabcdef
-ÏÈÈÃab ½»»»µÃµ½bacdef         ÔÙÈÃcdef½»»»µÃµ½bafedc,    ÔÙÈÃbafedc ½»»»¾ÍµÃµ½cdefab
-½âÎö£ºĞ´Ò»¸öµ¥¶ÀµÄ½»»»º¯Êı£¬·Ö±ğÉèÖÃ½»»»º¯ÊıµÄÖĞÊı×éµÄ×óÓÒÖµ£¬½»»»kÇ°µÄ×Ö·û´®£¬ÔÚ½»»»kºóµÄ×Ö·û´®£¬Ö®ºóÔÚ×ÜÌå½»»»*/
-void swap(char a[],int left,int right)
-{
+/*1.å®ç°ä¸€ä¸ªå‡½æ•°ï¼Œå¯ä»¥å·¦æ—‹å­—ç¬¦ä¸²ä¸­çš„kä¸ªå­—ç¬¦ã€‚ 
+ABCDå·¦æ—‹ä¸€ä¸ªå­—ç¬¦å¾—åˆ°BCDA 
+ABCDå·¦æ—‹ä¸¤ä¸ªå­—ç¬¦å¾—åˆ°CDAB
+ä¾‹ï¼š   k=2,       å­—ç¬¦ä¸²ï¼šabcdef
+å…ˆè®©ab äº¤æ¢å¾—åˆ°bacdef         å†è®©cdefäº¤æ¢å¾—åˆ°bafedc,    å†è®©bafedc äº¤æ¢å°±å¾—åˆ°cdefab
+è§£æï¼šå†™ä¸€ä¸ªå•ç‹¬çš„äº¤æ¢å‡½æ•°ï¼Œåˆ†åˆ«è®¾ç½®äº¤æ¢å‡½æ•°çš„ä¸­æ•°ç»„çš„å·¦å³å€¼ï¼Œäº¤æ¢kå‰çš„å­—ç¬¦ä¸²ï¼Œåœ¨äº¤æ¢kåçš„å­—ç¬¦ä¸²ï¼Œä¹‹ååœ¨æ€»ä½“äº¤æ¢*/
+void swap(char a[],int left,int right) {
 	int ret = 0;
-	while (left < right)
-	{
+	while (left < right) {
 		ret = a[left];
 		a[left] = a[right];
 		a[right] = ret;
@@ -53,20 +46,18 @@ void swap(char a[],int left,int right)
 		right--;
 	}
 }
-void leftswap(char a[],int k,int len)
-{
+void leftswap(char a[],int k,int len) {
 	int left = 0;
 	int right =k-1;
-	swap(a, left, right);//½«ĞèÒªµÄ×ókÎ»×ª»»
+	swap(a, left, right);//å°†éœ€è¦çš„å·¦kä½è½¬æ¢
 	left = k;
 	right = len - 2;
-	swap(a, left, right);//½«Ê£ÓàµÄ×ª»»
+	swap(a, left, right);//å°†å‰©ä½™çš„è½¬æ¢
 	left = 0;
 	right = len - 2;
-	swap(a,left, right);//È«²¿½øĞĞ×ª»»
+	swap(a,left, right);//å…¨éƒ¨è¿›è¡Œè½¬æ¢
 }
-int main()
-{
+int main() {
 	char a[] = "abcdef";
 	int len = sizeof(a) / sizeof(a[0]);
 	int k = 3;	
@@ -74,38 +65,30 @@ int main()
 	printf("%s\n", a);
 	return 0;
 }
-/*ÑîÊÏ¾ØÕó 
-ÓĞÒ»¸ö¶şÎ¬Êı×é. 
-Êı×éµÄÃ¿ĞĞ´Ó×óµ½ÓÒÊÇµİÔöµÄ£¬Ã¿ÁĞ´ÓÉÏµ½ÏÂÊÇµİÔöµÄ. 
-ÔÚÕâÑùµÄÊı×éÖĞ²éÕÒÒ»¸öÊı×ÖÊÇ·ñ´æÔÚ¡£ 
-Ê±¼ä¸´ÔÓ¶ÈĞ¡ÓÚO(N); */
+/*æ¨æ°çŸ©é˜µ 
+æœ‰ä¸€ä¸ªäºŒç»´æ•°ç»„. 
+æ•°ç»„çš„æ¯è¡Œä»å·¦åˆ°å³æ˜¯é€’å¢çš„ï¼Œæ¯åˆ—ä»ä¸Šåˆ°ä¸‹æ˜¯é€’å¢çš„. 
+åœ¨è¿™æ ·çš„æ•°ç»„ä¸­æŸ¥æ‰¾ä¸€ä¸ªæ•°å­—æ˜¯å¦å­˜åœ¨ã€‚ 
+æ—¶é—´å¤æ‚åº¦å°äºO(N); */
 
-void find(int arr[][3], int *row, int *col, int key)
-{
+void find(int arr[][3], int *row, int *col, int key) {
 	int x = 0;
 	int y = *col - 1;
-	while (x <*row&&y>0)//ÅĞ¶ÏÌõ¼ş
-	{
-		if (arr[x][y] == key)//ÕÒµ½
-		{
+	while (x <*row&&y>0)//åˆ¤æ–­æ¡ä»¶ {
+		if (arr[x][y] == key)//æ‰¾åˆ° {
 			*row = x;
 			*col = y;
 			return;
-		}
-		else if (arr[x][y] < key)
-		{
-			x++;//±ä»»ĞĞ
-		}
-		else
-		{
-			y--;//±ä»»ÁĞ
+		} else if (arr[x][y] < key) {
+			x++;//å˜æ¢è¡Œ
+		} else {
+			y--;//å˜æ¢åˆ—
 		}
 	}
 	*row = -1;
 	*col = -1;
 }
-int main()
-{
+int main() {
 	int arr[3][3]= {1,2,3,4,5,6,7,8,9};
 	int x=3;
 	int y=3;
@@ -113,53 +96,40 @@ int main()
 	int *col = &y;
 	int key=5;
 	find(arr,row,col,key);
-	if (*row == -1 && *col == -1)
-	{
-		printf("Ã»ÕÒµ½\n");
-	}
-	else
-	{
-		printf("ÕÒµ½ÁË£¬ÏÂ±êÎª %d,%d\n", *row, *col);
+	if (*row == -1 && *col == -1) {
+		printf("æ²¡æ‰¾åˆ°\n");
+	} else {
+		printf("æ‰¾åˆ°äº†ï¼Œä¸‹æ ‡ä¸º %d,%d\n", *row, *col);
 	}
 	system("pause");
 	return 0;
 }
 
-/*1.µ÷ÕûÊı×éÊ¹ÆæÊıÈ«²¿¶¼Î»ÓÚÅ¼ÊıÇ°Ãæ*/
-void func1(int a[],int len)
-{
+/*1.è°ƒæ•´æ•°ç»„ä½¿å¥‡æ•°å…¨éƒ¨éƒ½ä½äºå¶æ•°å‰é¢*/
+void func1(int a[],int len) {
 	int left = 0;
 	int right = len - 1;
 	int temp = 0;
-	while (left < right)
-	{
-		if (a[left] % 2 == 1)
-		{
+	while (left < right) {
+		if (a[left] % 2 == 1) {
 			left++;
-		}
-		else if (a[right] % 2 == 0)
-		{
+		} else if (a[right] % 2 == 0) {
 			right--;
-		}
-		else
-		{
+		} else {
 			temp = a[left];
 			a[left] = a[right];
 			a[right] = temp;
 		}
 	}
 }
-void print(int a[], int len)
-{
+void print(int a[], int len) {
 	int i;
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		printf("%d ",a[i]);
 	}
 	printf("\n");
 }
-int main()
-{
+int main() {
 	int a[] = { 1, 2, 4, 3, 5, 11, 7, 8, 15, 9, 6 };
 	int len = sizeof(a) / sizeof(a[0]);
 	func1(a, len);
