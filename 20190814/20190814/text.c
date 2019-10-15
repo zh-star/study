@@ -1,8 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 
-int main()
-{
+int main() {
 	int a[3][4] = { 0 };
 	printf("%d\n", sizeof(a));
 	printf("%d\n", sizeof(a[0][0]));
@@ -43,8 +42,8 @@ int main()
 	//p = (char*)malloc(sizeof(char)* 20);
 	//q = p;
 	//scanf("a = %f, b = %d", &a, &b);
-	//scanf("%s %s", p, q);//输入abc def
-	//printf("%s %s\n", p, q);//输出 def def///因为malloc函数是开辟内存并将地址传给了p,q=p,两个指向同一块地址，abc 传给p,再将def传给q,覆盖了原来的
+	//scanf("%s %s", p, q);//杈撳叆abc def
+	//printf("%s %s\n", p, q);//杈撳嚭 def def///鍥犱负malloc鍑芥暟鏄紑杈熷唴瀛樺苟灏嗗湴鍧�浼犵粰浜唒,q=p,涓や釜鎸囧悜鍚屼竴鍧楀湴鍧�锛宎bc 浼犵粰p,鍐嶅皢def浼犵粰q,瑕嗙洊浜嗗師鏉ョ殑
 	//char a[] = {'a','b','c','d','e','f'};
 	//printf("%d\n",sizeof(a));
 	//printf("%d\n", sizeof(a+0));
