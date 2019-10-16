@@ -2,23 +2,19 @@
 #include<stdio.h>
 #include<assert.h>
 #if 0
-char* my_strcat(char* dest, char* src)
-{
+char* my_strcat(char* dest, char* src) {
 	char *cp = dest;
 	//assert(src && dest);
-	while (*dest != '\0')
-	{
+	while (*dest != '\0') {
 		dest++;
 	}
-	while (*dest++ = *src++)
-	{
+	while (*dest++ = *src++) {
 		;
 	}
 	return cp;
 }
 
-int main()
-{
+int main() {
 	char arr1[15] = "abcd";
 	char arr2[] = "efhij";
 	printf("%s\n", my_strcat(arr1, arr2));
@@ -27,20 +23,16 @@ int main()
 
 #endif
 
-/*Ä£ÄâÊµÏÖstrcat*/
-int main()
-{
+/*æ¨¡æ‹Ÿå®žçŽ°strcat*/
+int main() {
 	char arr1[20] = "abcdef";
 	char arr2[] = "hijwr";
 	int sz1 = sizeof(arr1) / sizeof(arr1[0]);
 	int sz2 = sizeof(arr2) / sizeof(arr2[0]);
 	int i = 0,j=0;
-	for(i = 0; i < sz1 - 1; i++)
-	{
-		if (arr1[i] == '\0')
-		{
-			for (j = 0; j < sz2-1; j++)
-			{
+	for(i = 0; i < sz1 - 1; i++) {
+		if (arr1[i] == '\0') {
+			for (j = 0; j < sz2-1; j++) {
 				arr1[i] = arr2[j];
 				i++;
 			}			
@@ -50,20 +42,15 @@ int main()
 	return 0;
 }
 #if 0
-/*.Ä£ÄâÊµÏÖstrcpy(a,b)½«b×Ö·û´®copy¸øa£¬°üÀ¨\0£¬*/
-int main()
-{
+/*.æ¨¡æ‹Ÿå®žçŽ°strcpy(a,b)å°†bå­—ç¬¦ä¸²copyç»™aï¼ŒåŒ…æ‹¬\0ï¼Œ*/
+int main() {
 	char arr1[] = "abcdef";
 	char arr2[] = "hijklh";
 	int i = 0;
-	for (i = 0; i < 7; i++)
-	{
-		if (arr2[i] != "\0")
-		{
+	for (i = 0; i < 7; i++) {
+		if (arr2[i] != "\0") {
 			arr1[i] = arr2[i];
-		}
-		else
-		{
+		} else {
 			break;
 		}
 	}
@@ -71,40 +58,34 @@ int main()
 	return 0;
 }
 
-/*2.ºÈÆûË®£¬1Æ¿ÆûË®1Ôª£¬2¸ö¿ÕÆ¿¿ÉÒÔ»»Ò»Æ¿ÆûË®£¬ 
-¸ø20Ôª£¬¿ÉÒÔ¶àÉÙÆûË®¡£ 
-±à³ÌÊµÏÖ¡£*/
+/*2.å–æ±½æ°´ï¼Œ1ç“¶æ±½æ°´1å…ƒï¼Œ2ä¸ªç©ºç“¶å¯ä»¥æ¢ä¸€ç“¶æ±½æ°´ï¼Œ 
+ç»™20å…ƒï¼Œå¯ä»¥å¤šå°‘æ±½æ°´ã€‚ 
+ç¼–ç¨‹å®žçŽ°ã€‚*/
 
-int main()
-{
+int main() {
 	int m = 20;
-	int n = 1, s;     //n:Õâ´ÎÐÂ»»µÄ£¬s:ÉÏÒ»´Î»»¹ýÖ®ºóÊ£ÓàµÄ
+	int n = 1, s;     //n:è¿™æ¬¡æ–°æ¢çš„ï¼Œs:ä¸Šä¸€æ¬¡æ¢è¿‡ä¹‹åŽå‰©ä½™çš„
 	int sum = m;
-	while (n != 0)
-	{
+	while (n != 0) {
 		n = m / 2;
 		s = m % 2;
-		m=s + n;//ÐÂ»»µÄ+ÉÏ´ÎÊ£ÓàµÄ=ÏÂ´ÎÒªÄÃÈ¥»»µÄ
-		sum = sum + n;//Ã¿´ÎÒª¼ÓÉÏÐÂ»»µÄ
+		m=s + n;//æ–°æ¢çš„+ä¸Šæ¬¡å‰©ä½™çš„=ä¸‹æ¬¡è¦æ‹¿åŽ»æ¢çš„
+		sum = sum + n;//æ¯æ¬¡è¦åŠ ä¸Šæ–°æ¢çš„
 	}	
 	printf("%d\n",sum);
 	return 0;
 }
 
-/*1.Ò»¸öÊý×éÖÐÖ»ÓÐÁ½¸öÊý×ÖÊÇ³öÏÖÒ»´Î£¬ 
-ÆäËûËùÓÐÊý×Ö¶¼³öÏÖÁËÁ½´Î¡£ 
-ÕÒ³öÕâÁ½¸öÊý×Ö£¬±à³ÌÊµÏÖ¡£*/
-int main()
-{
+/*1.ä¸€ä¸ªæ•°ç»„ä¸­åªæœ‰ä¸¤ä¸ªæ•°å­—æ˜¯å‡ºçŽ°ä¸€æ¬¡ï¼Œ 
+å…¶ä»–æ‰€æœ‰æ•°å­—éƒ½å‡ºçŽ°äº†ä¸¤æ¬¡ã€‚ 
+æ‰¾å‡ºè¿™ä¸¤ä¸ªæ•°å­—ï¼Œç¼–ç¨‹å®žçŽ°ã€‚*/
+int main() {
 	int arr[7] = { 1, 2 ,3, 4, 5, 6,1 };
 	int i = 0,j=0;
 	int ret = 0;
-	for (i = 0; i < 7; i++)
-	{
-		for (j = i+1; j < 7; j++)
-		{
-			if (arr[i] == arr[j])
-			{
+	for (i = 0; i < 7; i++) {
+		for (j = i+1; j < 7; j++) {
+			if (arr[i] == arr[j]) {
 				ret = arr[i];
 				break;
 		    }
