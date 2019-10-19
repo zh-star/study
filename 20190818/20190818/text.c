@@ -1,23 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #if 0
-/*1. ´òÓ¡100~200 Ö®¼äµÄËØÊý     ËØÊý£º²»ÄÜ±»1»òËü±¾Éí³ýÍâµÄÈÎºÎÊý×ÖÕû³ý */
+/*1. æ‰“å°100~200 ä¹‹é—´çš„ç´ æ•°     ç´ æ•°ï¼šä¸èƒ½è¢«1æˆ–å®ƒæœ¬èº«é™¤å¤–çš„ä»»ä½•æ•°å­—æ•´é™¤ */
 
-void Prime()
-{
+void Prime() {
 	int i = 0;
 	int j = 0;
-	printf("ËØÊýÓÐ£º");
-	for (i = 100; i <= 200; i++)
-	{
-		for (j = 2; j < i; j++)
-		{
-			if (i%j == 0)
-			{
+	printf("ç´ æ•°æœ‰ï¼š");
+	for (i = 100; i <= 200; i++) {
+		for (j = 2; j < i; j++) {
+			if (i%j == 0) {
 				break;
-			}
-			else
-			{
+			} else {
 				printf("%d  ", i);
 				break;
 			}	
@@ -25,46 +19,38 @@ void Prime()
 	}
 }
 
-/*2. Êä³ö³Ë·¨¿Ú¾÷±í */
-void Mul()
-{
+/*2. è¾“å‡ºä¹˜æ³•å£è¯€è¡¨ */
+void Mul() {
 	int i = 0;
 	int j = 0;
-	for (i = 1; i < 10; i++)//ÐÐ
-	{
-		for (j = 1; j <= i; j++)//ÁÐ
-		{
+	for (i = 1; i < 10; i++)//è¡Œ {
+		for (j = 1; j <= i; j++)//åˆ— {
 			printf("%d*%d=%d  ", j, i, j*i);
 		}
 		printf("\n");
 	}
 }
 
-/*3. ÅÐ¶Ï1000Äê---2000ÄêÖ®¼äµÄÈòÄê £¬ÈòÄê£ºÄÜ±»4Õû³ýÇÒ²»ÄÜ±»100Õû³ý£¬ºÍÄÜ±»400Õû³ý*/
-void  Leap()
-{
+/*3. åˆ¤æ–­1000å¹´---2000å¹´ä¹‹é—´çš„é—°å¹´ ï¼Œé—°å¹´ï¼šèƒ½è¢«4æ•´é™¤ä¸”ä¸èƒ½è¢«100æ•´é™¤ï¼Œå’Œèƒ½è¢«400æ•´é™¤*/
+void  Leap() {
 	int i = 0;
-	printf("ÈòÄêÓÐ£º");
-	for (i = 1000; i <= 2000; i++)
-	{
-		if ((i % 4 == 0 && i % 100  !=0 )|| i % 400 == 0)
-		{
+	printf("é—°å¹´æœ‰ï¼š");
+	for (i = 1000; i <= 2000; i++) {
+		if ((i % 4 == 0 && i % 100  !=0 )|| i % 400 == 0) {
 			printf("%d  ",i);
 		}
 	}
 }
 
-/*2.1. ¸ø¶¨Á½¸öÕûÐÎ±äÁ¿µÄÖµ£¬½«Á½¸öÖµµÄÄÚÈÝ½øÐÐ½»»»¡£*/
-void swap(int* p,int* q)
-{
+/*2.1. ç»™å®šä¸¤ä¸ªæ•´å½¢å˜é‡çš„å€¼ï¼Œå°†ä¸¤ä¸ªå€¼çš„å†…å®¹è¿›è¡Œäº¤æ¢ã€‚*/
+void swap(int* p,int* q) {
 	int temp = *p;
 	*p = *q;
 	*q = temp;
 }
 
-/*2. ²»ÔÊÐí´´½¨ÁÙÊ±±äÁ¿£¬½»»»Á½¸öÊýµÄÄÚÈÝ£¨¸½¼ÓÌâ£© */
-void swap1(int* p, int*q)
-{
+/*2. ä¸å…è®¸åˆ›å»ºä¸´æ—¶å˜é‡ï¼Œäº¤æ¢ä¸¤ä¸ªæ•°çš„å†…å®¹ï¼ˆé™„åŠ é¢˜ï¼‰ */
+void swap1(int* p, int*q) {
 	*p = *p ^ *q;	
 	*q = *p ^*q;
 	*p = *p ^ *q;
@@ -73,32 +59,25 @@ void swap1(int* p, int*q)
 	*p = *p - *q;*/
 }
 
-/*3.Çó10 ¸öÕûÊýÖÐ×î´óÖµ¡£ */
-int Max(int  arr[10])
-{
+/*3.æ±‚10 ä¸ªæ•´æ•°ä¸­æœ€å¤§å€¼ã€‚ */
+int Max(int  arr[10]) {
 	int i = 0;
 	int j = 0;
 	int max = 0;
 	int sex = 0;
-	for (i = 0; i < 10; i++)
-	{
+	for (i = 0; i < 10; i++) {
 		scanf("%d",&arr[i]);
 	}
 	max = arr[0];
-	for (i = 1; i < 10; i++)
-	{
-		if (max<arr[i ])
-		{
-			//sex = max;//Çó´Î´óÖµÊ±¿É¼ÓÕâ¾ä£¬sex·µ»ØµÄÎª´Î´óÖµ
+	for (i = 1; i < 10; i++) {
+		if (max<arr[i ]) {
+			//sex = max;//æ±‚æ¬¡å¤§å€¼æ—¶å¯åŠ è¿™å¥ï¼Œsexè¿”å›žçš„ä¸ºæ¬¡å¤§å€¼
 			max = arr[i];
 		}
 	}
-	/*for (i = 0; i < 10; i++)//Ã°ÅÝ·½·¨
-	{	
-		for (j = 0; j < 10; j++)
-		{	
-			if (arr[j] < arr[j+1])
-			{
+	/*for (i = 0; i < 10; i++)//å†’æ³¡æ–¹æ³• {	
+		for (j = 0; j < 10; j++) {	
+			if (arr[j] < arr[j+1]) {
 				int temp = arr[j];
 				arr[j] = arr[j+1];
 				arr[j+1] = temp;
@@ -108,63 +87,52 @@ int Max(int  arr[10])
 	return max;
 }
 
-/*½«Èý¸öÊý°´´Ó´óµ½Ð¡Êä³ö¡£*/
-void swap(int* p, int* q)
-{
+/*å°†ä¸‰ä¸ªæ•°æŒ‰ä»Žå¤§åˆ°å°è¾“å‡ºã€‚*/
+void swap(int* p, int* q) {
 	int temp = *p;
 	*p = *q;
 	*q = temp;
 }
-void SumberSort()
-{
+void SumberSort() {
 	int arr[3] = { 0 };
 	int i = 0, j = 0;
-	printf("ÇëÊäÈëÒªÅÅÐòµÄÈý¸öÊý×Ö£º");
-	for (i = 0; i < 3; i++)
-	{
+	printf("è¯·è¾“å…¥è¦æŽ’åºçš„ä¸‰ä¸ªæ•°å­—ï¼š");
+	for (i = 0; i < 3; i++) {
 		scanf("%d", &arr[i]);
 	}
-	for (i = 0; i < 3; i++)
-	{
-		for (j = 0; j < 3; j++)
-		{
-			if (arr[j]<arr[j+1])
-			{
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			if (arr[j]<arr[j+1]) {
 				swap(&arr[j], &arr[j + 1]);			
 			}
 		}
 	}
-	for (i = 0; i < 3; i++)//´òÓ¡Êý×éÒªÓÃÑ­»·±éÀú
-	{
+	for (i = 0; i < 3; i++)//æ‰“å°æ•°ç»„è¦ç”¨å¾ªçŽ¯éåŽ† {
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
 }
 #endif
-/*ÇóÁ½¸öÊýµÄ×î´ó¹«Ô¼Êý¡£   ×î´ó¹«Ô¼Êý£º±éÀú´Ó1µ½½ÏÐ¡µÄÄÇ¸öÊýÖ®¼äµÄËùÓÐÊý×Ö£¬Í¬Ê±Âú×ãÓàÊýÎª0µÄÊ±ºò£¬³ýÊý¾ÍÊÇËùÓÐµÄ¹«Ô¼Êý£¬ÔÙÈ¥µÃµ½×î´ó¹«Ô¼Êý*/
-void MaxGongYueShu()
-{
+/*æ±‚ä¸¤ä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•°ã€‚   æœ€å¤§å…¬çº¦æ•°ï¼šéåŽ†ä»Ž1åˆ°è¾ƒå°çš„é‚£ä¸ªæ•°ä¹‹é—´çš„æ‰€æœ‰æ•°å­—ï¼ŒåŒæ—¶æ»¡è¶³ä½™æ•°ä¸º0çš„æ—¶å€™ï¼Œé™¤æ•°å°±æ˜¯æ‰€æœ‰çš„å…¬çº¦æ•°ï¼Œå†åŽ»å¾—åˆ°æœ€å¤§å…¬çº¦æ•°*/
+void MaxGongYueShu() {
 	int a=0, b=0;
 	int i, temp;
-	int ret;//×î´ó¹«Ô¼Êý
-	printf("ÇëÊäÈëÁ½¸öÊý£º");
+	int ret;//æœ€å¤§å…¬çº¦æ•°
+	printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•°ï¼š");
 	scanf("%d%d", &a, &b);
 	 temp = a < b ? a : b;
-	for (i = 1; i <=temp; i++)
-	{
-		if (a%i== 0 && b%i == 0)
-		{
+	for (i = 1; i <=temp; i++) {
+		if (a%i== 0 && b%i == 0) {
 			ret = i;
 		}
 	}
-	printf("×î´ó¹«Ô¼ÊýÎª£º%d\n", ret);
+	printf("æœ€å¤§å…¬çº¦æ•°ä¸ºï¼š%d\n", ret);
 }
-int main()
-{
+int main() {
 	MaxGongYueShu();
 	//SumberSort();
 	/*int arr[10] = { 0 };
-	printf("ÇëÊäÈëÐèÒª±È½ÏµÄ10¸öÊý×Ö£º");
+	printf("è¯·è¾“å…¥éœ€è¦æ¯”è¾ƒçš„10ä¸ªæ•°å­—ï¼š");
 	int ret=Max(arr);
 	printf("%d\n",ret);*/
 	/*int a = 3;
