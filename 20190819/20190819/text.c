@@ -4,24 +4,20 @@
 #include<stdlib.h>
 #include<time.h>
 #if 0
-/*1. ½«Êı×éAÖĞµÄÄÚÈİºÍÊı×éBÖĞµÄÄÚÈİ½øĞĞ½»»»¡££¨Êı×éÒ»Ñù´ó£© */
-void Printf(char a[])
-{
+/*1. å°†æ•°ç»„Aä¸­çš„å†…å®¹å’Œæ•°ç»„Bä¸­çš„å†…å®¹è¿›è¡Œäº¤æ¢ã€‚ï¼ˆæ•°ç»„ä¸€æ ·å¤§ï¼‰ */
+void Printf(char a[]) {
 	int i = 0;
-	for (i = 0; i < 5; i++)
-	{
+	for (i = 0; i < 5; i++) {
 		printf("%d ", a[i]);
 	}
 
 }
-void ShuzuSwap()
-{
+void ShuzuSwap() {
 	char a[5] = { 1, 2, 3, 4, 5 };
 	char b[5] = { 6, 7, 8, 9, 10 };
 	int i = 0;
 	int temp;
-	for (i = 0; i < 5; i++)
-	{
+	for (i = 0; i < 5; i++) {
 		temp = a[i];
 		a[i] = b[i];
 		b[i] = temp;
@@ -33,63 +29,49 @@ void ShuzuSwap()
 
 }
 
-/*2. ¼ÆËã1/1-1/2+1/3-1/4+1/5 ¡­¡­ + 1/99 - 1/100 µÄÖµ¡£ */
-void func1()
-{
+/*2. è®¡ç®—1/1-1/2+1/3-1/4+1/5 â€¦â€¦ + 1/99 - 1/100 çš„å€¼ã€‚ */
+void func1() {
 	int i = 0;
 	int temp = 1;
 	double sum = 0;
-	for (i = 1; i <= 100; i++)
-	{
+	for (i = 1; i <= 100; i++) {
 		sum = sum + temp*(1.0 / i);
 		temp = temp*(-1);
 	}
 	printf("%lf\n", sum);
 }
 
-/*3. ±àĞ´³ÌĞòÊıÒ»ÏÂ 1µ½ 100 µÄËùÓĞÕûÊıÖĞ³öÏÖ¶àÉÙ´ÎÊı×Ö9¡£ */
-void func2()
-{
+/*3. ç¼–å†™ç¨‹åºæ•°ä¸€ä¸‹ 1åˆ° 100 çš„æ‰€æœ‰æ•´æ•°ä¸­å‡ºç°å¤šå°‘æ¬¡æ•°å­—9ã€‚ */
+void func2() {
 	int i = 0;
 	int count = 0;
-	for (i = 1; i <= 100; i++)
-	{
-		if (i % 10 == 9)
-		{
+	for (i = 1; i <= 100; i++) {
+		if (i % 10 == 9) {
 			count++;
-		}
-		else if (i / 10 == 9)
-		{
+		} else if (i / 10 == 9) {
 			count++;
 		}
 	}
 	printf("%d\n", count);
 }
 
-/*.ÔÚÆÁÄ»ÉÏÊä³öÒÔÏÂÍ¼°¸*/
-void func3()
-{
+/*.åœ¨å±å¹•ä¸Šè¾“å‡ºä»¥ä¸‹å›¾æ¡ˆ*/
+void func3() {
 	int i = 0, j = 0;
-	for (i = 1; i <=7; i++)
-	{
-		for (j = 1; j <= 7 - i; j++)
-		{
+	for (i = 1; i <=7; i++) {
+		for (j = 1; j <= 7 - i; j++) {
 			printf(" ");
 		}
-		for (j = 1; j <=2*i - 1; j++)
-		{
+		for (j = 1; j <=2*i - 1; j++) {
 			printf("*");
 		}
 		printf("\n");
 	}
-	for (i = 6; i >=1; i--)
-	{
-		for (j = 1; j <= 7 - i; j++)
-		{
+	for (i = 6; i >=1; i--) {
+		for (j = 1; j <= 7 - i; j++) {
 			printf(" ");
 		}
-		for (j = 1; j <= 2 * i - 1; j++)
-		{
+		for (j = 1; j <= 2 * i - 1; j++) {
 			printf("*");
 		}
 	
@@ -97,54 +79,46 @@ void func3()
 	}
 }
 
-/*2.Çó³ö0¡«999Ö®¼äµÄËùÓĞ¡°Ë®ÏÉ»¨Êı¡±²¢Êä³ö¡£ 
-¡°Ë®ÏÉ»¨Êı¡±ÊÇÖ¸Ò»¸öÈıÎ»Êı£¬Æä¸÷Î»Êı×ÖµÄÁ¢·½ºÍÈ·ºÃµÈÓÚ¸ÃÊı±¾Éí£¬Èç£»153 = 1^3 + 5^3 + 3^3£¬Ôò153ÊÇÒ»¸ö¡°Ë®ÏÉ»¨Êı¡±¡£ */
+/*2.æ±‚å‡º0ï½999ä¹‹é—´çš„æ‰€æœ‰â€œæ°´ä»™èŠ±æ•°â€å¹¶è¾“å‡ºã€‚ 
+â€œæ°´ä»™èŠ±æ•°â€æ˜¯æŒ‡ä¸€ä¸ªä¸‰ä½æ•°ï¼Œå…¶å„ä½æ•°å­—çš„ç«‹æ–¹å’Œç¡®å¥½ç­‰äºè¯¥æ•°æœ¬èº«ï¼Œå¦‚ï¼›153 = 1^3 + 5^3 + 3^3ï¼Œåˆ™153æ˜¯ä¸€ä¸ªâ€œæ°´ä»™èŠ±æ•°â€ã€‚ */
 
-void func4()
-{
+void func4() {
 	int i = 0;
-	for (i = 0; i < 1000000; i++)
-	{
+	for (i = 0; i < 1000000; i++) {
 		int count = 1;
 		int temp = i;
 		int  sum=0;
-		while (temp / 10)
-		{
+		while (temp / 10) {
 			count++;
 			temp /= 10;
 		}
-		temp = i;//¼ÆËãÃ¿¸öÊıµÄÃ¿Ò»Î»µÄÎ»Êı´Î·½ºÍÖ®Ç°ÏÈÒª½«Ô­À´µÄÖµ¸³»ØÀ´£¬ÉÏÃæ¼ÆËãÎ»ÊıÊ±£¬¶ÔËü½øĞĞÁË¸Ä±ä
-		while (temp)
-		{
+		temp = i;//è®¡ç®—æ¯ä¸ªæ•°çš„æ¯ä¸€ä½çš„ä½æ•°æ¬¡æ–¹å’Œä¹‹å‰å…ˆè¦å°†åŸæ¥çš„å€¼èµ‹å›æ¥ï¼Œä¸Šé¢è®¡ç®—ä½æ•°æ—¶ï¼Œå¯¹å®ƒè¿›è¡Œäº†æ”¹å˜
+		while (temp) {
 			sum += pow(temp % 10, count);
 			temp /= 10;
 		}
-		if (i == sum)
-		{
+		if (i == sum) {
 			printf("%d ",i);
 		}
 	}
 }
 
-/*ÇóSn=a+aa+aaa+aaaa+aaaaaµÄÇ°5ÏîÖ®ºÍ£¬ÆäÖĞaÊÇÒ»¸öÊı×Ö£¬ÀıÈç£º2+22+222+2222+22222  */
-void func5()
-{
+/*æ±‚Sn=a+aa+aaa+aaaa+aaaaaçš„å‰5é¡¹ä¹‹å’Œï¼Œå…¶ä¸­aæ˜¯ä¸€ä¸ªæ•°å­—ï¼Œä¾‹å¦‚ï¼š2+22+222+2222+22222  */
+void func5() {
 	int a = 2;
 	int n = 5;
 	int i = 0;
 	int sum = 0;
 	int temp = 0;
-	for (i = 0; i < n; i++)
-	{
+	for (i = 0; i < n; i++) {
 		temp = temp+a*pow(10, i);//i=0,sum=2;i=1,sum=22,
 		sum = sum + temp;
-		printf("%d ", temp);//´òÓ¡µÄÃ¿Ò»Î»£º2  22 222 2222
+		printf("%d ", temp);//æ‰“å°çš„æ¯ä¸€ä½ï¼š2  22 222 2222
 	}
 	printf("%d\n", sum);
 }
 
-int main()
-{
+int main() {
 	func5();
 	//func4();
 	//func3();
@@ -155,53 +129,43 @@ int main()
 	return 0;
 }
 
-/*1.Íê³É²ÂÊı×ÖÓÎÏ·¡£*/
-void game()
-{
-	int rand_num = rand() % 100 + 1;//rand()%100Éú³É[0,99£©µÄËæ»úÊı Í·ÎÄ¼ş£ºstdlib.h   ÈôÒªÉú³É[0£¬10)µÄËæ»úÊı£ºrand()%10
+/*1.å®ŒæˆçŒœæ•°å­—æ¸¸æˆã€‚*/
+void game() {
+	int rand_num = rand() % 100 + 1;//rand()%100ç”Ÿæˆ[0,99ï¼‰çš„éšæœºæ•° å¤´æ–‡ä»¶ï¼šstdlib.h   è‹¥è¦ç”Ÿæˆ[0ï¼Œ10)çš„éšæœºæ•°ï¼šrand()%10
 	int input = 0;
-	while (1)
-	{
-		printf("ÇëÊäÈëÄúÒª²ÂµÄÊı×Ö£º\n");
+	while (1) {
+		printf("è¯·è¾“å…¥æ‚¨è¦çŒœçš„æ•°å­—ï¼š\n");
 		scanf("%d", &input);
-		if (input > rand_num)
-		{
-			printf("Äú²Â´óÁË£¡\n");
-		}
-		else if (input < rand_num)
-		{
-			printf("Äú²ÂĞ¡ÁË£¡\n");		
-		}
-		else
-		{
-			printf("Äú²Â¶ÔÁË£¡\n");
+		if (input > rand_num) {
+			printf("æ‚¨çŒœå¤§äº†ï¼\n");
+		} else if (input < rand_num) {
+			printf("æ‚¨çŒœå°äº†ï¼\n");		
+		} else {
+			printf("æ‚¨çŒœå¯¹äº†ï¼\n");
 			break;
 		}
 	}
 }
-int main()
-{
+int main() {
 	int input = 0;
 	srand((unsigned)time(NULL));
-	printf("ÇëÊäÈëÄúµÄÑ¡Ôñ£º\n");
+	printf("è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©ï¼š\n");
 	scanf("%d", &input);
-	switch(input)
-	{
+	switch(input) {
 		case 1:
-			printf("¿ªÊ¼ÓÎÏ·\n");
+			printf("å¼€å§‹æ¸¸æˆ\n");
 			game();
 			break;
 		case 0:
-				printf("ÓÎÏ·ÍË³ö\n");
+				printf("æ¸¸æˆé€€å‡º\n");
 		default:
-			printf("ÄúµÄÊäÈëÓĞÎó\n");
+			printf("æ‚¨çš„è¾“å…¥æœ‰è¯¯\n");
 			break;
 	}
 	return 0;
 }
 #endif
-int main()
-{
+int main() {
 	char* c[] = { "ENTER", "NEW", "POINT", "FIRST" };
 	char** cp[] = { c + 3, c + 2, c + 1, c };
 	char*** cpp = cp;
