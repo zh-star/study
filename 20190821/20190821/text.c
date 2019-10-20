@@ -3,17 +3,17 @@
 #include<string.h>
 #include<assert.h>
 #if 0
-/*1.ÊµÏÖstrcpy,×Ö·û´®¿½±´*/
+/*1.å®ç°strcpy,å­—ç¬¦ä¸²æ‹·è´*/
 char* Strcpy(char* dest, const char* src) {	
-	if (src == NULL || dest ==NULL) {   //ºÏ·¨ĞÔĞ£Ñé£¬ÈáºÍµÄ´¦Àí·½Ê½
+	if (src == NULL || dest ==NULL) {   //åˆæ³•æ€§æ ¡éªŒï¼ŒæŸ”å’Œçš„å¤„ç†æ–¹å¼
 		return dest;
 	}
-	//assert(src != NULL || dest != NULL);//assert ÖĞĞ´ºÏ·¨ÄÚÈİ£¬Ìõ¼ş²»·ûºÏ³ÌĞò±ÀÀ£
+	//assert(src != NULL || dest != NULL);//assert ä¸­å†™åˆæ³•å†…å®¹ï¼Œæ¡ä»¶ä¸ç¬¦åˆç¨‹åºå´©æºƒ
 	int i = 0;
 	for (i = 0; src[i] != '\0'; ++i) {
-		dest[i] = src[i];//½«src¿½±´¸ødest
+		dest[i] = src[i];//å°†srcæ‹·è´ç»™dest
 	}
-	dest[i] = src[i];//½«'\0'Ò²Òª¿½±´
+	dest[i] = src[i];//å°†'\0'ä¹Ÿè¦æ‹·è´
 	return dest;
 }
 int main() {
@@ -26,29 +26,24 @@ int main() {
 
 #endif
 #if 0
-/*2.ÊµÏÖstrcat :×Ö·û´®Æ´½Ó*/
-char* 	strcat(char* dest, const char* src)
-{
-	if (dest == NULL || src == NULL)
-	{
+/*2.å®ç°strcat :å­—ç¬¦ä¸²æ‹¼æ¥*/
+char* 	strcat(char* dest, const char* src) {
+	if (dest == NULL || src == NULL) {
 		return dest;
 	}
 	char* p = dest;
-	while (*p != '\0')
-	{
+	while (*p != '\0') {
 		++p;
-	}//Ñ­»·½áÊø¡£pÖ¸Ïò¡®\0¡¯
+	}//å¾ªç¯ç»“æŸã€‚pæŒ‡å‘â€˜\0â€™
 	//Strcpy(p,src);
-	while (*src != '\0')
-	{
+	while (*src != '\0') {
 		*p = *src;
 		++p;
 		++src;
 	}
 	return dest;
 }
-int main() 
-{
+int main() {
 	char str1[20] = "abcde";
 	char str2[] = "fhij";
 	strcat(str1,str2);
@@ -58,88 +53,68 @@ int main()
 
 #endif
 #if 0
-/*3.ÊµÏÖstrstr :·¢ÏÖ×Ö·û´®*/
-const char* Strstr(const char* str1, const char* str2)
-{
-	if (str1== NULL || str2 == NULL)//ºÏ·¨ĞÔĞ£Ñé
-	{
+/*3.å®ç°strstr :å‘ç°å­—ç¬¦ä¸²*/
+const char* Strstr(const char* str1, const char* str2) {
+	if (str1== NULL || str2 == NULL)//åˆæ³•æ€§æ ¡éªŒ {
 		return NULL;
 	}	
-	if (*str2 == '\0')
-	{
+	if (*str2 == '\0') {
 		return NULL;
 	}
 	const char* black_ptr = str1;
-	while (*black_ptr != '\0')
-	{
+	while (*black_ptr != '\0') {
 		const char* red_ptr = black_ptr;
 		const char* sub_ptr = str2;
-		while ((*red_ptr != '\0')&&(*sub_ptr != '\0' )&& (*red_ptr == *sub_ptr))
-		{
+		while ((*red_ptr != '\0')&&(*sub_ptr != '\0' )&& (*red_ptr == *sub_ptr)) {
 			++red_ptr;
 			++sub_ptr;
 		}
-		if (*sub_ptr == '\0')
-		{//ÕÒµ½ÁË×Ö·û´®
+		if (*sub_ptr == '\0') {//æ‰¾åˆ°äº†å­—ç¬¦ä¸²
 			return black_ptr;
-		}
-		else//  *red_ptr == '\0'»ò *red_ptr != *sub_ptrÕâÁ½ÖÖÇé¿ö
-		{
+		} else//  *red_ptr == '\0'æˆ– *red_ptr != *sub_ptrè¿™ä¸¤ç§æƒ…å†µ {
 			++black_ptr;
 		}		
 	}
 	return NULL;
 }
-int main()
-{
+int main() {
 	const char str1[12] = "hello world";
 	const char str2[] = "world";
 	const char* ret=Strstr(str1, str2);
-	if (ret == NULL)
-	{
-		printf("Ã»ÓĞÕÒµ½\n");
-	}
-	else
-	{
-		printf("ÕÒµ½ÁË\n");
+	if (ret == NULL) {
+		printf("æ²¡æœ‰æ‰¾åˆ°\n");
+	} else {
+		printf("æ‰¾åˆ°äº†\n");
 	}
 	return 0;
 }
 
 #endif
-/*4.ÊµÏÖstrchr(s,c):²éÕÒ×Ö·û´®sÖĞÊ×´Î³öÏÖ×Ö·ûcµÄÎ»ÖÃ¡£*/
-char* Strchr(const char* str1, int  c)
-{
-	if (str1 != NULL || c != 0)
-	{
+/*4.å®ç°strchr(s,c):æŸ¥æ‰¾å­—ç¬¦ä¸²sä¸­é¦–æ¬¡å‡ºç°å­—ç¬¦cçš„ä½ç½®ã€‚*/
+char* Strchr(const char* str1, int  c) {
+	if (str1 != NULL || c != 0) {
 		return NULL;
 	}
 	 const char* p = str1;
-	while (*p != '\0')
-	{
-		if (*p == c)
-		{
+	while (*p != '\0') {
+		if (*p == c) {
 			return (char *)p;
 		}
 		++p;
 	}
 	return NULL;
 }
-int main()
-{
+int main() {
 	char str1[] = "abcdecde";
 	int  c = 'c';
 	char* ret=strchr(str1, c);
-	if (ret == NULL)
-	{
-		printf("Ã»ÕÒµ½\n");
-	}
-	else
-	{
+	if (ret == NULL) {
+		printf("æ²¡æ‰¾åˆ°\n");
+	} else {
 		printf("%d\n", *ret);//-&str1+1);
 	}
 	return 0;
 }
 #if 0
 #endif
-/*ÊµÏÖstrcmp:*/
+/*å®ç°strcmp:*/
