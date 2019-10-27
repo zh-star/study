@@ -3,21 +3,19 @@
 #include<stdlib.h>
 #include<string.h>
 #if 0
-int main()
-{
-	int n, ret = 0;//n±íÊ¾ÏîÊı
-	int i = 0;//Òª´òÓ¡µÄÊı×Ö
+int main() {
+	int n, ret = 0;//nè¡¨ç¤ºé¡¹æ•°
+	int i = 0;//è¦æ‰“å°çš„æ•°å­—
 	scanf("%d", &n);
-	while (n>ret)
-	{
+	while (n>ret) {
 		i++;
-		ret = i*i - ret;//ÕÒµÄ¹æÂÉ
+		ret = i*i - ret;//æ‰¾çš„è§„å¾‹
 	}
 	printf("%d\n", i);
 	return 0;
 }
 #endif
-int main(){
+int main() {
 	int n;
 	int k=0;
 	scanf("%d",&n);
@@ -40,8 +38,7 @@ int main(){
 //{
 //	*p = (char*)malloc(num);	
 //}
-int main()
-{
+int main() {
 	char* str = NULL;
 	int num = 100;
 	char* p = (char*)malloc(num);
@@ -53,22 +50,19 @@ int main()
 	return 0;
 }
 
-int main()
-{
+int main() {
 	int num = 0;
 	scanf("%d", &num);
 	int* ptr = NULL;
-	ptr = (int*)malloc(num*sizeof(int));//ÉêÇëÄÚ´æ
-	if (ptr != NULL)//ÅĞ¶ÏÊÇ·ñÉêÇëÄÚ´æ³É¹¦£¬¿¼ÊÔÕÒ´íÌâ±Ø¿¼Ìâ
-	{
+	ptr = (int*)malloc(num*sizeof(int));//ç”³è¯·å†…å­˜
+	if (ptr != NULL)//åˆ¤æ–­æ˜¯å¦ç”³è¯·å†…å­˜æˆåŠŸï¼Œè€ƒè¯•æ‰¾é”™é¢˜å¿…è€ƒé¢˜ {
 		int i = 0;
-		for (i = 0; i < num; i++)
-		{
+		for (i = 0; i < num; i++) {
 			*(ptr + i) = 0;
 		}
 	}
-	free(ptr);//ÊÍ·ÅÄÚ´æ
-	ptr = NULL;//ÊÍ·ÅºóÖÃ¿Õ£¬·ÀÖ¹Ö®ºóÎóÓÃ£¬¿ÉÒÔ¼°Ê±·¢ÏÖ
+	free(ptr);//é‡Šæ”¾å†…å­˜
+	ptr = NULL;//é‡Šæ”¾åç½®ç©ºï¼Œé˜²æ­¢ä¹‹åè¯¯ç”¨ï¼Œå¯ä»¥åŠæ—¶å‘ç°
 	return 0;
 }
 #endif
