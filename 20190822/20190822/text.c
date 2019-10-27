@@ -21,8 +21,7 @@ struct S4{
 	struct S3 s3;    //16+7
 	double d; //8
 }; //32
-int main()
-{
+int main() {
 	printf("%d\n", sizeof(struct S4));
 	//printf("%d\n", sizeof(struct S3));
 	printf("%d\n", sizeof(struct S2));
@@ -30,34 +29,27 @@ int main()
 	return 0;
 }
 #if 0
-/*ÊµÏÖmemmove */
-void * Memmove(void *dest, const void *src, size_t num)
-{
-	//ºÏ·¨ÐÔÐ£Ñé
-	if (dest == NULL || src == NULL || num == 0)
-	{
+/*å®žçŽ°memmove */
+void * Memmove(void *dest, const void *src, size_t num) {
+	//åˆæ³•æ€§æ ¡éªŒ
+	if (dest == NULL || src == NULL || num == 0) {
 		return dest;
 	}
-	//ÏÈÇø·Öµ±Ç°»º³åÇøÊÇ·ñÖØµþ
+	//å…ˆåŒºåˆ†å½“å‰ç¼“å†²åŒºæ˜¯å¦é‡å 
 	char* pdest = (char*)dest;
 	char* psrc = (char*)src;
-	if (pdest >= psrc&&pdest <= psrc + num)
-	{
-		//»º³åÇøÖØµþ£¬´ÓºóÏòÇ°¿½±´
-		for (size_t i = 0; i < num; ++i)
-		{
+	if (pdest >= psrc&&pdest <= psrc + num) {
+		//ç¼“å†²åŒºé‡å ï¼Œä»ŽåŽå‘å‰æ‹·è´
+		for (size_t i = 0; i < num; ++i) {
 			pdest = pdest + num-1;
 			psrc = psrc + num-1;
 			*pdest = *psrc;
 			--pdest;
 			--psrc;
 		}
-	}
-	else
-	{
-		//»º³åÇø²»ÖØµþ£¬Õý³£¿½±´
-		for (size_t i = 0; i < num; ++i)
-		{
+	} else {
+		//ç¼“å†²åŒºä¸é‡å ï¼Œæ­£å¸¸æ‹·è´
+		for (size_t i = 0; i < num; ++i) {
 			*pdest = *psrc;
 			++pdest;
 			++psrc;
@@ -65,8 +57,7 @@ void * Memmove(void *dest, const void *src, size_t num)
 	}
 	return dest;
 }
-int main()
-{
+int main() {
 	char  arr1[] = "a";
 	char arr2[] = "memove can be very useful.......";
     Memmove(arr1, arr2, sizeof(arr2));
