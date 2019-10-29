@@ -1,60 +1,60 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-#define Max_personinfo 1000//ÉèÖÃ×î´óÁªÏµÈËÊıÎª1000
+#define Max_personinfo 1000//è®¾ç½®æœ€å¤§è”ç³»äººæ•°ä¸º1000
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #if 0
 
-//ÁªÏµÈË°¸Àı
-typedef struct Personinfo {//¶¨ÒåÒ»¸ö½á¹¹Ìå,½á¹¹Ìå³ÉÔ±ÎªĞÕÃû,µç»°
+//è”ç³»äººæ¡ˆä¾‹
+typedef struct Personinfo {//å®šä¹‰ä¸€ä¸ªç»“æ„ä½“,ç»“æ„ä½“æˆå‘˜ä¸ºå§“å,ç”µè¯
 	char Name[1024];
 	char Phone[1024];
 }Personinfo;
-typedef struct Addressbook {//Õâ¸ö½á¹¹Ìå´æ·ÅÕâÉÏÒ»¸ö½á¹¹ÌåµÄÊı×é,ºÍÒ»¸ö¼ÆÊı±äÁ¿
+typedef struct Addressbook {//è¿™ä¸ªç»“æ„ä½“å­˜æ”¾è¿™ä¸Šä¸€ä¸ªç»“æ„ä½“çš„æ•°ç»„,å’Œä¸€ä¸ªè®¡æ•°å˜é‡
 	Personinfo person[Max_personinfo];
 	int size;
 }Addressbook;
-Addressbook g_addressbook;//È«¾Ö±äÁ¿,°Ñ½á¹¹ÌåÊµÌå»¯
+Addressbook g_addressbook;//å…¨å±€å˜é‡,æŠŠç»“æ„ä½“å®ä½“åŒ–
 void Nothing() {
-	//³äÊıµÄº¯Êı
+	//å……æ•°çš„å‡½æ•°
 }
-void Addpersoninfo() {//Ìí¼ÓÁªÏµÈËº¯Êı
-	printf("ĞÂ½¨ÁªÏµÈË\n");
+void Addpersoninfo() {//æ·»åŠ è”ç³»äººå‡½æ•°
+	printf("æ–°å»ºè”ç³»äºº\n");
 	if (g_addressbook.size > Max_personinfo) {
-		printf("ĞÂÔöÁªÏµÈËÊ§°Ü,Í¨Ñ¶Â¼ÒÑÂú\n");
+		printf("æ–°å¢è”ç³»äººå¤±è´¥,é€šè®¯å½•å·²æ»¡\n");
 		return;
 	}
-	printf("ÇëÊäÈëĞÕÃû\n");
-	//ÓÃÒ»¸öÖ¸Õë±£´æÄÚÈİ,·½±ãºóÃæĞ´³ÌĞò
+	printf("è¯·è¾“å…¥å§“å\n");
+	//ç”¨ä¸€ä¸ªæŒ‡é’ˆä¿å­˜å†…å®¹,æ–¹ä¾¿åé¢å†™ç¨‹åº
 	Personinfo* person_info = &g_addressbook.person[g_addressbook.size];
 	scanf("%s", person_info->Name);
-	printf("ÇëÊäÈëµç»°\n");
+	printf("è¯·è¾“å…¥ç”µè¯\n");
 	scanf("%s", person_info->Phone);
 	++g_addressbook.size;
-	printf("ĞÂ½¨ÁªÏµÈË³É¹¦\n");
+	printf("æ–°å»ºè”ç³»äººæˆåŠŸ\n");
 }
-void Delpersoninfo() {//É¾³ıÁªÏµÈËº¯Êı
-	printf("É¾³ıÁªÏµÈË\n");
+void Delpersoninfo() {//åˆ é™¤è”ç³»äººå‡½æ•°
+	printf("åˆ é™¤è”ç³»äºº\n");
 	if (g_addressbook.size <= 0) {
-		printf("É¾³ıÊ§°Ü,Í¨Ñ¶Â¼Îª¿Õ\n");
+		printf("åˆ é™¤å¤±è´¥,é€šè®¯å½•ä¸ºç©º\n");
 		return;
 	}
-	printf("ÇëÊäÈëÒªÉ¾³ıµÄĞòºÅ\n");
+	printf("è¯·è¾“å…¥è¦åˆ é™¤çš„åºå·\n");
 	int id;
 	scanf("%d", &id);
 	if (id<0 || id>g_addressbook.size) {
-		printf("É¾³ıÊ§°Ü,ĞòºÅÓĞÎó\n");
+		printf("åˆ é™¤å¤±è´¥,åºå·æœ‰è¯¯\n");
 		return;
 	}
 	g_addressbook.person[id] = g_addressbook.person[g_addressbook.size - 1];
 	--g_addressbook.size;
-	printf("É¾³ıÁªÏµÈË³É¹¦\n");
+	printf("åˆ é™¤è”ç³»äººæˆåŠŸ\n");
 }
-void Findpersoninfo() {//²éÕÒÁªÏµÈËº¯Êı
-	printf("²éÕÒÁªÏµÈË\n");
+void Findpersoninfo() {//æŸ¥æ‰¾è”ç³»äººå‡½æ•°
+	printf("æŸ¥æ‰¾è”ç³»äºº\n");
 	char name[1024] = { 0 };
-	printf("ÇëÊäÈëÒª²éÕÒÁªÏµÈËµÄĞÕÃû\n");
+	printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾è”ç³»äººçš„å§“å\n");
 	scanf("%s", name);
 	for (int i = 0; i<g_addressbook.size; ++i) {
 		Personinfo* info = &g_addressbook.person[i];
@@ -62,33 +62,33 @@ void Findpersoninfo() {//²éÕÒÁªÏµÈËº¯Êı
 			printf("[%d] %s %s\n", i, info->Name, info->Phone);
 		}
 	}
-	printf("²éÕÒÁªÏµÈË³É¹¦\n");
+	printf("æŸ¥æ‰¾è”ç³»äººæˆåŠŸ\n");
 
 }
-void Modpersoninfo() {//ĞŞ¸ÄÁªÏµÈËº¯Êı
-	printf("ĞŞ¸ÄÁªÏµÈË\n");
+void Modpersoninfo() {//ä¿®æ”¹è”ç³»äººå‡½æ•°
+	printf("ä¿®æ”¹è”ç³»äºº\n");
 	if (g_addressbook.size <= 0) {
-		printf("Í¨Ñ¶Â¼Îª¿Õ,¸üĞÂÊ§°Ü\n");
+		printf("é€šè®¯å½•ä¸ºç©º,æ›´æ–°å¤±è´¥\n");
 	}
-	printf("ÇëÊäÈëÒª¸üĞÂÁªÏµÈËµÄĞòºÅ:\n");
+	printf("è¯·è¾“å…¥è¦æ›´æ–°è”ç³»äººçš„åºå·:\n");
 	int id;
 	scanf("%d", &id);
 	Personinfo* info = &g_addressbook.person[id];
 	char name[1024] = { 0 };
-	printf("ÇëÊäÈëÒªĞŞ¸ÄµÄĞÕÃû\n");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„å§“å\n");
 	scanf("%s", name);
 	if (name != NULL) {
 		strcpy(info->Name, name);
 	}
 	char phone[1024] = { 0 };
-	printf("ÇëÊäÈëÒªĞŞ¸ÄµÄµç»°\n");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„ç”µè¯\n");
 	scanf("%s", phone);
 	if (phone != NULL) {
 		strcpy(info->Phone, phone);
 	}
-	printf("ĞŞ¸ÄÁªÏµÈË³É¹¦\n");
+	printf("ä¿®æ”¹è”ç³»äººæˆåŠŸ\n");
 }
-void Printallpersoninfo() {//´òÓ¡ÁªÏµÈËº¯Êı
+void Printallpersoninfo() {//æ‰“å°è”ç³»äººå‡½æ•°
 	for (int i = 0; i < g_addressbook.size; ++i) {
 		printf("[%d]", i);
 		printf("%s", g_addressbook.person[i].Name);
@@ -96,27 +96,27 @@ void Printallpersoninfo() {//´òÓ¡ÁªÏµÈËº¯Êı
 		printf("%s\n", g_addressbook.person[i].Phone);
 	}
 }
-void Clearpersoninfo() {//Çå¿ÕÁªÏµÈËº¯Êı
-	printf("Çå¿ÕËùÓĞÁªÏµÈË\n");
-	printf("ÄúÈ·ÈÏÒªÇå¿ÕËùÓĞÁªÏµÈËÂğ? Y\\N \n");
+void Clearpersoninfo() {//æ¸…ç©ºè”ç³»äººå‡½æ•°
+	printf("æ¸…ç©ºæ‰€æœ‰è”ç³»äºº\n");
+	printf("æ‚¨ç¡®è®¤è¦æ¸…ç©ºæ‰€æœ‰è”ç³»äººå—? Y\\N \n");
 	char choice[1024] = { 0 };
 	scanf("%s", choice);
 	if (strcmp(choice, 'Y') == 0) {
 		g_addressbook.size = 0;
 	}
 	else {
-		printf("Çå¿ÕËùÓĞÁªÏµÈËÈ¡Ïû\n");
+		printf("æ¸…ç©ºæ‰€æœ‰è”ç³»äººå–æ¶ˆ\n");
 		return;
 	}
-	printf("Çå¿ÕËùÓĞÁªÏµÈË³É¹¦\n");
+	printf("æ¸…ç©ºæ‰€æœ‰è”ç³»äººæˆåŠŸ\n");
 }
-void Sortpersoninfo() {//°´ÕÕÊ××ÖÄ¸ÅÅĞòÁªÏµÈË
+void Sortpersoninfo() {//æŒ‰ç…§é¦–å­—æ¯æ’åºè”ç³»äºº
 	int i, j;
 	for (i = 0; i < g_addressbook.size - 1; ++i) {
 		for (j = 0; j < g_addressbook.size - i - 1; ++j) {
 			if (strcmp(g_addressbook.person[j].Name, g_addressbook.person[j + 1].Name) > 0) {
 				char tmp[1024] = { 0 };
-				//×Ö·û´®Ö®¼äµÄ¸³ÖµĞèÒªÓÃµ½strcpy
+				//å­—ç¬¦ä¸²ä¹‹é—´çš„èµ‹å€¼éœ€è¦ç”¨åˆ°strcpy
 				strcpy(tmp, g_addressbook.person[j].Name);
 				strcpy(g_addressbook.person[j].Name, g_addressbook.person[j + 1].Name);
 				strcpy(g_addressbook.person[j + 1].Name, tmp);
@@ -124,32 +124,32 @@ void Sortpersoninfo() {//°´ÕÕÊ××ÖÄ¸ÅÅĞòÁªÏµÈË
 		}
 	}
 }
-void Overapp() {//½áÊø³ÌĞòµÄº¯Êı
+void Overapp() {//ç»“æŸç¨‹åºçš„å‡½æ•°
 	printf("Goodbay!");
 	exit(0);
 }
-void init() {//³õÊ¼»¯Í¨Ñ¶Â¼º¯Êı
+void init() {//åˆå§‹åŒ–é€šè®¯å½•å‡½æ•°
 	g_addressbook.size = 0;
 	for (int i = 0; i < Max_personinfo; ++i) {
 		g_addressbook.person[i].Name[0] = '\0';
 		g_addressbook.person[i].Phone[0] = '\0';
 	}
 }
-void menu() {//²Ëµ¥º¯Êı
+void menu() {//èœå•å‡½æ•°
 	printf("===================\n");
-	printf("1.Ìí¼ÓÁªÏµÈË\n");
-	printf("2.É¾³ıÁªÏµÈË\n");
-	printf("3.²éÕÒÁªÏµÈË\n");
-	printf("4.ĞŞ¸ÄÁªÏµÈË\n");
-	printf("5.´òÓ¡ÁªÏµÈË\n");
-	printf("6.Çå¿ÕÁªÏµÈË\n");
-	printf("7.ÅÅĞòÁªÏµÈË\n");
-	printf("8.ÍË³ö\n");
+	printf("1.æ·»åŠ è”ç³»äºº\n");
+	printf("2.åˆ é™¤è”ç³»äºº\n");
+	printf("3.æŸ¥æ‰¾è”ç³»äºº\n");
+	printf("4.ä¿®æ”¹è”ç³»äºº\n");
+	printf("5.æ‰“å°è”ç³»äºº\n");
+	printf("6.æ¸…ç©ºè”ç³»äºº\n");
+	printf("7.æ’åºè”ç³»äºº\n");
+	printf("8.é€€å‡º\n");
 	printf("===================\n");
 }
-typedef void(*Func)();//¶¨ÒåÒ»¸öº¯ÊıÖ¸Õë
+typedef void(*Func)();//å®šä¹‰ä¸€ä¸ªå‡½æ•°æŒ‡é’ˆ
 int main() {
-	//°Ñº¯ÊıÓÃ×ªÒÆ±í·â×°ÆğÀ´
+	//æŠŠå‡½æ•°ç”¨è½¬ç§»è¡¨å°è£…èµ·æ¥
 	Func arr[] = {
 		Nothing,
 		Addpersoninfo,
@@ -165,10 +165,10 @@ int main() {
 	while (1) {
 		menu();
 		int choice;
-		printf("ÇëÊäÈëÄãµÄÑ¡Ïî:");
+		printf("è¯·è¾“å…¥ä½ çš„é€‰é¡¹:");
 		scanf("%d", &choice);
 		if (choice < 0 || choice >= sizeof(arr) / sizeof(arr[0])) {
-			printf("ÄúÊäÈëµÄÑ¡ÏîÓĞÎó,ÇëÖØĞÂÊäÈë\n");
+			printf("æ‚¨è¾“å…¥çš„é€‰é¡¹æœ‰è¯¯,è¯·é‡æ–°è¾“å…¥\n");
 			continue;
 		}
 		arr[choice]();
@@ -179,19 +179,16 @@ int main() {
 #endif
 #if 0
 #include<stdio.h>
-int main()
-{
+int main() {
 	int n = 5;
 	int i = 0;
 	int count = 0;
 	int ret;
-	printf("ÇëÊäÈëÒ»¸öÕûÊı£º");
+	printf("è¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°ï¼š");
 	scanf("%d",&n);
-	for (i = 0; i<32; i++)
-	{
+	for (i = 0; i<32; i++) {
 		ret = (n >> i) & 1;
-		if (ret == 1)
-		{
+		if (ret == 1) {
 			count++;
 		}
 	}
@@ -199,30 +196,23 @@ int main()
 	return 0;
 }
 
-int main()
-{
+int main() {
 	char arr[] = "pwwkew";
 	int set=0, ret = 1;
 	int i = 0, j = 0;
 	int sz;
 	//scanf("%s", arr);
     sz = sizeof(arr) / sizeof(arr[0]);
-	//for (i = 0; i<sz - 1; i++)
-	//{
-		for (j = i + 1; j<sz - 1; j++)
-		{
+	//for (i = 0; i<sz - 1; i++) {
+		for (j = i + 1; j<sz - 1; j++) {
 			//i = 0;
-			if (arr[i] != arr[j])
-			{
+			if (arr[i] != arr[j]) {
 				
 				set = j - i + 1;
-				if (set>ret)
-				{
+				if (set>ret) {
 					ret = set;
 				}			
-			}
-			else
-			{ 
+			} else { 
 				i++; 
 			}
 		//}
@@ -232,34 +222,27 @@ int main()
 }
 #endif
 //#include<stdio.h>
-long long  func1(int m, int n)
-{
+long long  func1(int m, int n) {
 	int i = 0;
 	long long    ret = 0;
 	int mid;
 	long long  count = 0;
-	for (i = 0; i<n; i++)
-	{
+	for (i = 0; i<n; i++) {
 		ret = ret * 10 + (i + 1);
 		//printf("%d\n",ret);
 		mid = i;
-		for (; (mid >= (m - 1)) && mid<n;)
-		{
-			if (ret % 3 == 0)
-			{
+		for (; (mid >= (m - 1)) && mid<n;) {
+			if (ret % 3 == 0) {
 				count++;
 				break;
-			}
-			else
-			{
+			} else {
 				break;
 			}
 		}
 	}
 	return count;
 }
-int main()
-{
+int main() {
 	int m, n;
 	//int n;
 	scanf("%d%d", &m, &n);
